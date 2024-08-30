@@ -49,7 +49,7 @@ console.log(rest); // {c: 30, d: 40}
 
 ```javascript
 let x = [1, 2, 3, 4, 5];
-let [y, x] = x;
+let [y, z] = x;
 console.log(y); // 1
 console.log(z); // 2
 ```
