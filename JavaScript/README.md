@@ -360,7 +360,7 @@ niceToMeetYou(); // "Hello Moles!"
 <br>자바스크립트 인터프리터가 코드를 읽는 방식으로,
 <br>스코프(함수) 안에 존재하는 모든 **선언**들을 해당 스코프(함수)의 최상단으로 끌어올리는 것이다.
 
-`const`: **호이스팅 ❌**
+`const`: **일시적 사각지대(TDZ, Temporal Dead Zone)에 존재** - 선언 전에 접근 불가능
 
 ```javascript
 niceToMeetYou(); // ❗Uncaught ReferenceError: Cannot access 'niceToMeetYou' before initialization
