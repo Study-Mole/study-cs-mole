@@ -2,7 +2,7 @@
 
 - [브라우저 동작 과정](#브라우저-동작-과정)
 - [REST API](#rest-api)
-
+- [클로저](#클로저-closure)
 ---
 
 ## 브라우저 동작 과정
@@ -150,3 +150,61 @@ HTTP 기반의 요청-응답 구조로 자원 관리와 상태 비저장성을 �
 - TCP/IP Socket: 저수준의 네트워크 통신으로 양방향 연결을 통해 데이터 전송.
 - gRPC: 빠르고 효율적인 바이너리 기반의 원격 프로시저 호출(RPC) 프로토콜, 주로 마이크로서비스 간 통신에 사용.
 - WebSocket: 지속적인 양방향 통신을 지원하는 프로토콜로, 실시간 데이터 전송에 적합.
+
+
+## 클로저 (Closure)
+
+> A Closure is the combination of a function and the lexical environment within which that function was declared.<br/> _**클로저는 함수와 그 함수가 선언되었을 때의 렉시컬 환경과의 조합이다.**_
+
+너무나도 난해하므로 예제부터 본다.
+```javascript
+function outerFunc() {
+  var x = 10;
+  var innerFunc = function () { console.log(x); };
+  innerFunc();
+}
+
+outerFunc(); // 10
+```
+innerFunc는 자신을 포함하고 있는 외부함수 outerFunc의 변수 x에 접근했다.<br/>
+스코프는 호출할 때가 아니라 함수를 어디서 선언했는지에 따라 결정된다. 이를 **렉시컬 스코핑(Lexical Scoping)** 이라 한다.
+
+innerFunc는 자신이 속한(= 선언된 곳) 렉시컬 스코프(자신의 스코프, outerFunc, 전역)를 참조할 수 있다.
+
+innerFunc이 호출될 때 스코프 체인은 전역 객체, outerFunc의 활성 객체, innerFunc 자기 자신의 스코프를 가리키는 활성 객체를 순차적으로 바인딩한다. 스코프 체인이 바인딩한 객체가 렉시컬 스코프의 실체이다.
+
+변수 x를 찾는 경우 스코프 체인을 따라 다음과 같은 동작을 한다.
+1. innerFunc 함수 스코프에서 변수 x를 검색한다.
+2. (1번이 실패한 경우) outerFunc 함수 스코프에서 변수 x를 검색한다.
+3. (2번이 실패한 경우) 전역 스코프에서 변수 x를 검색한다.
+
+<br/>
+
+이번엔 outerFunc이 innerFunc을 반환하도록 코드를 수정해보자.
+
+```javascript
+function outerFunc() {
+  var x = 10;
+  var innerFunc = function() { console.log(x); }
+  return innerFunc;
+}
+
+/**
+ *  함수 outerFunc를 호출하면 내부 함수 innerFunc가 반환된다.
+ *  그리고 함수 outerFunc의 실행 컨텍스트는 소멸한다.
+ */
+
+var inner = outerFunc();
+inner(); // 10
+```
+outerFunc은 innerFunc을 반환하고 소멸했지만 놀랍게도 innerFunc은 outerFunc의 x를 참조해온다.<br/>
+자신을 포함하고 있는 외부함수보다 내부함수가 더 오래 유지되는 경우, <u>**외부함수 밖에서 내부함수가 호출되더라도 외부함수의 지역 변수에 접근할 수 있는데 이러한 함수를 클로저(Closure)라고 한다.**</u>
+
+<br/>
+
+난해했던 정의로 다시 돌아가본다.
+> A Closure is the combination of a function and the lexical environment within which that function was declared.<br/> _**클로저는 함수와 그 함수가 선언되었을 때의 렉시컬 환경과의 조합이다.**_
+
+"함수"는 innerFunc을 말하는 것이고 "렉시컬 환경"은 innerFunc이 정의되었던 스코프를 의미한다.
+
+즉, **클로저는 반환된 내부함수가 자신이 선언되었을 때의 환경을 기억하여 자신이 선언된 환경 밖에서 호출되어도 그 환경에 접근할 수 있는 함수를 말한다.**
