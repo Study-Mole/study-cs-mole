@@ -3,6 +3,7 @@
 - [구조 분해 할당 (Destructing assignment)](#구조-분해-할당-destructing-assignment)
 - [`const` vs `function`](#const-vs-function)
 - [화살표 함수](#화살표-함수)
+- [`==` vs `===` (Equality Operators)](#-vs--equality-operators)
 
 ## 구조 분해 할당 (Destructing assignment)
 
@@ -523,23 +524,29 @@ function factorial(n) {
 <br/>
 
 ## 화살표 함수
+
 이전에는 `function` 키워드를 사용해서 함수를 선언했다. <br/>ES6에서 등장한 화살표 함수는 `=>`를 사용하여 보다 간략한 방법으로 함수를 선언한다.
 
 ### 화살표 함수의 호출
+
 화살표 함수는 익명 함수로만 사용할 수 있다. 따라서 화살표 함수를 호출하기 위해서는 함수 표현식을 사용한다.
+
 ```javascript
 const sayHello = () => console.log("hello mole~");
-sayHello() // hello mole~
+sayHello(); // hello mole~
 ```
 
 ### 화살표 함수의 this
+
 일반 함수(function)와 화살표 함수(=>)의 가장 큰 차이점은 `this`이다.
 
 function으로 선언한 함수가 메소드로 호출되냐 함수 자체로 호출되냐에 따라 동적으로 this가 바인딩되는 반면, 화살표 함수는 선언될 시점에서의 상위 스코프가 this로 바인딩된다.
 
 ### 화살표 함수를 사용하면 안되는 경우
+
 **1. 메소드**
 <br/> 메소드로 정의한 화살표 함수의 this는 상위 스코프인 전역 객체 window를 가리킨다.
+
 ```javascript
 const badMole = {
   name: 'yuna',
@@ -558,15 +565,17 @@ const goodMole = {
 
 goodMole.sayHi(); // Hi yubin ⭕️
 ```
+
 <br/>
 
 **2. prototype**
 <br/>
 화살표 함수로 정의된 메서드를 prototype에 할당하는 경우도 1번과 동일한 문제가 발생한다.
+
 ```javascript
 const mole = {
-  name: 'yubin',
-}
+  name: "yubin",
+};
 
 // 화살표 함수
 Object.prototype.sayHi = () => console.log(`Hi ${this.name}`);
@@ -574,42 +583,125 @@ Object.prototype.sayHi = () => console.log(`Hi ${this.name}`);
 mole.sayHi(); // Hi undefined ❌
 
 // 일반 함수
-Object.prototype.sayHi = function() {
+Object.prototype.sayHi = function () {
   console.log(`Hi ${this.name}`);
-}
+};
 
 mole.sayHi(); // Hi yubin ⭕️
 ```
+
 <br/>
 
 **3. 생성자 함수**
 <br/>
 화살표 함수는 생성자 함수로 사용할 수 없다.
 <br/>생성자 함수는 prototype이라는 속성을 가지며 이 속성이 가리키는 프로토타입 객체의 constructor를 사용한다. 하지만 화살표 함수는 이를 가지고 있지 않다.
-```javascript
-const Foo = () => {}
 
-console.log(Foo.hasOwnProperty('prototype')); // false
+```javascript
+const Foo = () => {};
+
+console.log(Foo.hasOwnProperty("prototype")); // false
 
 const foo = new Foo(); // TypeError: Foo is not a constructor
 ```
+
 <br/>
 
 **4. addEventListener 함수의 콜백 함수**
 <br/>addEventListener 함수의 콜백 함수를 화살표 함수로 정의하면 this는 전역 객체 window를 가리킨다.
 <br/>addEventListener 함수의 콜백 함수 내에서 this를 사용하는 경우, 일반 함수를 사용해야 한다. 그 때의 this는 이벤트 리스너에 바인딩된 요소(currentTarget)를 가리킨다.
+
 ```javascript
-button.addEventListener('click', () => {
+button.addEventListener("click", () => {
   console.log(this === window); // true ❌
-  this.innerHTML = 'Clicked Button'
+  this.innerHTML = "Clicked Button";
 });
 
-button.addEventListener('click', function() {
+button.addEventListener("click", function () {
   console.log(this === window); // false ⭕️
-  this.innerHTML = 'Clicked Button'
+  this.innerHTML = "Clicked Button";
 });
 ```
 
 [참고]
 
 - [Arrow funtion | PoiemaWeb](https://poiemaweb.com/es6-arrow-function)
+
+## `==` vs `===` (Equality Operators)
+
+각각 느슨한 동등 비교와 엄격한 동등 비교를 위해 사용되는 연산자이다.
+<br>비슷해 보이지만 사실은 매우 다른 두 개념을 살펴보자.
+
+### `===` (Strict Equality Operator)
+
+엄격한 동등성, 즉 타입과 값이 모두 같은지 비교할 때 사용한다.
+<br>`==` 연산자보다 간단한 논리를 거친 결과를 반환하므로 먼저 살펴보자.
+
+```javascript
+5 === 5;
+// true (모두 숫자, 같은 값)
+
+"hello world" === "hello world";
+// true (모두 문자열, 같은 값)
+
+true === true;
+// true (모두 불리언, 같은 값)
+```
+당연하게도 모두 `true`를 반환한다.
+
+아래 코드들은 모두 `false`를 반환한다. 결과과 제법 직관적이다.
+
+```javascript
+77 === '77'
+// false (숫자와 문자열, 같은 값)
+
+'cat' === 'dog'
+// false (모두 문자열, 다른 값)
+
+false === 0
+// false (불리언과 숫자, 다른 값)
+```
+
+즉, `===`은 타입과 값이 모두 같아야 `true`를 반환한다.
+
+### `==` (Abstract Equality Operator)
+
+느슨한 동등성을 비교할 때 사용한다.
+<br>강제 형변환(type coercion)을 통해 피연산자들을 공통 타입으로 만든 뒤에, 비교 연산을 수행한다.
+
+`===` 연산자와 비교하여 살펴보자.
+```javascript
+77 === '77' // false
+77 == '77' // true
+
+false === 0 // false
+false == 0 // true
+```
+이러한 차이는 강제 형변환에서 나타난다. 자바스크립트가 값을 동등한 타입으로 변환한 후에 값을 비교하기 때문이다.
+<br>문자열 `'77'`은 숫자 `77`로, 숫자 `0`은 `falsy`값 `false`로 변환된 것이다.
+
+### `Falsy` 값
+`false == 0`이 성립하는 이유는 자바스크립트에서 `0`이란 값이 `falsy` 값이기 때문이다.
+<br>`0` 이외에 `false`, `""`, `null`, `undefined`, `NaN` 값이 자바스크립트에서 `falsy` 값에 해당한다.
+
+그리고 아래 비교 규칙들을 이 기회에 암기해두도록 하자.
+<br>개인적으론 매번 헷갈리는 것들이다.
+```javascript
+false == 0 // true
+0 == "" // true
+"" == false // true
+
+null == null // true
+undefined == undefined // true
+null == undefined // true
+
+NaN == null // false
+NaN == undefined // false
+NaN == NaN // false
+```
+`NaN`값은 외우기 편하다. 마음에 든다.
+<br>우리가 일반적으로 생각하는 '동등 비교' 시에는, `===` 연산자를 쓰는 편이 좋을 것 같다.
+
+[참고]
+
+- [JavaScript — Double Equals vs. Triple Equals](https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a)
