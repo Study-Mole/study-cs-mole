@@ -3,8 +3,9 @@
 - [구조 분해 할당 (Destructing assignment)](#구조-분해-할당-destructing-assignment)
 - [`const` vs `function`](#const-vs-function)
 - [화살표 함수](#화살표-함수)
+- [`==` vs `===`](#-vs--equality-operators)
 - [클로저](#클로저-closure)
-  - [클로저의 활용](#클로저의-활용)  
+  - [클로저의 활용](#클로저의-활용)
 
 ## 구조 분해 할당 (Destructing assignment)
 
@@ -525,23 +526,29 @@ function factorial(n) {
 <br/>
 
 ## 화살표 함수
+
 이전에는 `function` 키워드를 사용해서 함수를 선언했다. <br/>ES6에서 등장한 화살표 함수는 `=>`를 사용하여 보다 간략한 방법으로 함수를 선언한다.
 
 ### 화살표 함수의 호출
+
 화살표 함수는 익명 함수로만 사용할 수 있다. 따라서 화살표 함수를 호출하기 위해서는 함수 표현식을 사용한다.
+
 ```javascript
 const sayHello = () => console.log("hello mole~");
-sayHello() // hello mole~
+sayHello(); // hello mole~
 ```
 
 ### 화살표 함수의 this
+
 일반 함수(function)와 화살표 함수(=>)의 가장 큰 차이점은 `this`이다.
 
 function으로 선언한 함수가 메소드로 호출되냐 함수 자체로 호출되냐에 따라 동적으로 this가 바인딩되는 반면, 화살표 함수는 선언될 시점에서의 상위 스코프가 this로 바인딩된다.
 
 ### 화살표 함수를 사용하면 안되는 경우
+
 **1. 메소드**
 <br/> 메소드로 정의한 화살표 함수의 this는 상위 스코프인 전역 객체 window를 가리킨다.
+
 ```javascript
 const badMole = {
   name: 'yuna',
@@ -560,15 +567,17 @@ const goodMole = {
 
 goodMole.sayHi(); // Hi yubin ⭕️
 ```
+
 <br/>
 
 **2. prototype**
 <br/>
 화살표 함수로 정의된 메서드를 prototype에 할당하는 경우도 1번과 동일한 문제가 발생한다.
+
 ```javascript
 const mole = {
-  name: 'yubin',
-}
+  name: "yubin",
+};
 
 // 화살표 함수
 Object.prototype.sayHi = () => console.log(`Hi ${this.name}`);
@@ -576,45 +585,141 @@ Object.prototype.sayHi = () => console.log(`Hi ${this.name}`);
 mole.sayHi(); // Hi undefined ❌
 
 // 일반 함수
-Object.prototype.sayHi = function() {
+Object.prototype.sayHi = function () {
   console.log(`Hi ${this.name}`);
-}
+};
 
 mole.sayHi(); // Hi yubin ⭕️
 ```
+
 <br/>
 
 **3. 생성자 함수**
 <br/>
 화살표 함수는 생성자 함수로 사용할 수 없다.
 <br/>생성자 함수는 prototype이라는 속성을 가지며 이 속성이 가리키는 프로토타입 객체의 constructor를 사용한다. 하지만 화살표 함수는 이를 가지고 있지 않다.
-```javascript
-const Foo = () => {}
 
-console.log(Foo.hasOwnProperty('prototype')); // false
+```javascript
+const Foo = () => {};
+
+console.log(Foo.hasOwnProperty("prototype")); // false
 
 const foo = new Foo(); // TypeError: Foo is not a constructor
 ```
+
 <br/>
 
 **4. addEventListener 함수의 콜백 함수**
 <br/>addEventListener 함수의 콜백 함수를 화살표 함수로 정의하면 this는 전역 객체 window를 가리킨다.
 <br/>addEventListener 함수의 콜백 함수 내에서 this를 사용하는 경우, 일반 함수를 사용해야 한다. 그 때의 this는 이벤트 리스너에 바인딩된 요소(currentTarget)를 가리킨다.
+
 ```javascript
-button.addEventListener('click', () => {
+button.addEventListener("click", () => {
   console.log(this === window); // true ❌
-  this.innerHTML = 'Clicked Button'
+  this.innerHTML = "Clicked Button";
 });
 
-button.addEventListener('click', function() {
+button.addEventListener("click", function () {
   console.log(this === window); // false ⭕️
-  this.innerHTML = 'Clicked Button'
+  this.innerHTML = "Clicked Button";
 });
 ```
 
 [참고]
 
 - [Arrow funtion | PoiemaWeb](https://poiemaweb.com/es6-arrow-function)
+
+<br>
+
+## `==` vs `===` (Equality Operators)
+
+각각 느슨한 동등 비교와 엄격한 동등 비교를 위해 사용되는 연산자이다.
+<br>비슷해 보이지만 사실은 매우 다른 두 개념을 살펴보자.
+
+### `===` (Strict Equality Operator)
+
+엄격한 동등성, 즉 타입과 값이 모두 같은지 비교할 때 사용한다.
+<br>`==` 연산자보다 간단한 논리를 거친 결과를 반환하므로 보다 먼저 살펴보자.
+
+같은 타입과 같은 값을 가진 것 사이의 비교이다.
+<br>모두 `true`를 반환한다.
+
+```javascript
+5 === 5;
+// true (모두 숫자, 같은 값)
+
+"hello world" === "hello world";
+// true (모두 문자열, 같은 값)
+
+true === true;
+// true (모두 불리언, 같은 값)
+```
+
+바로 두 번째 예제로 넘어가보자.
+
+```javascript
+77 === "77";
+// false (숫자와 문자열, 같은 값)
+
+"cat" === "dog";
+// false (모두 문자열, 다른 값)
+
+false === 0;
+// false (불리언과 숫자, 다른 값)
+```
+
+즉, `===`은 타입과 값 중 하나라도 다르면 두 값이 같지 않다고 판단하여 `false`를 반환한다.
+<br>아주 직관적인 비교 연산자라고 할 수 있겠다.
+
+### `==` (Abstract Equality Operator)
+
+느슨한 동등성을 비교할 때 사용한다.
+<br>강제 형변환(type coercion)을 통해 피연산자들을 공통 타입으로 만든 뒤에, 비교 연산을 수행한다.
+
+`===` 연산자와 비교하여 살펴보자.
+
+```javascript
+77 === "77"; // false
+77 == "77"; // true
+
+false === 0; // false
+false == 0; // true
+```
+
+이러한 차이는 강제 형변환에서 나타난다.
+<br>자바스크립트가 값을 동등한 타입으로 변환한 후에 값을 비교하기 때문이다.
+<br>문자열 `'77'`은 숫자 `77`로, 숫자 `0`은 `falsy`값 `false`로 변환된 것이다.
+
+### `Falsy` 값
+
+`false == 0`이 성립하는 이유는 자바스크립트에서 `0`이란 값이 `falsy` 값이기 때문이다.
+<br>`0` 이외에 `false`, `""`, `null`, `undefined`, `NaN` 값이 자바스크립트에서 `falsy` 값에 해당한다.
+
+이번 기회에 아래 비교 규칙들을 암기해두도록 하자.
+<br>개인적으론 매번 헷갈리는 것들이다.
+
+`NaN`값이 가장 쉽다.
+<br>굉장히 부정적이라고 볼 수 있겄다.
+
+```javascript
+false == 0; // true
+0 == ""; // true
+"" == false; // true
+
+null == null; // true
+undefined == undefined; // true
+null == undefined; // true
+
+NaN == null; // false
+NaN == undefined; // false
+NaN == NaN; // false
+```
+
+이제 두 변수가 같은지 확인하는, 우리가 일반적으로 원하는 동등 비교 시에는 `===` 연산자를 사용하기로 하자.
+
+[참고]
+
+- [JavaScript — Double Equals vs. Triple Equals](https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a)
 
 <br/>
 
@@ -623,15 +728,19 @@ button.addEventListener('click', function() {
 > A Closure is the combination of a function and the lexical environment within which that function was declared.<br/> _**클로저는 함수와 그 함수가 선언되었을 때의 렉시컬 환경과의 조합이다.**_
 
 너무나도 난해하므로 예제부터 본다.
+
 ```javascript
 function outerFunc() {
   var x = 10;
-  var innerFunc = function () { console.log(x); };
+  var innerFunc = function () {
+    console.log(x);
+  };
   innerFunc();
 }
 
 outerFunc(); // 10
 ```
+
 innerFunc는 자신을 포함하고 있는 외부함수 outerFunc의 변수 x에 접근했다.<br/>
 스코프는 호출할 때가 아니라 함수를 어디서 선언했는지에 따라 결정된다. 이를 **렉시컬 스코핑(Lexical Scoping)** 이라 한다.
 
@@ -640,6 +749,7 @@ innerFunc는 자신이 속한(= 선언된 곳) 렉시컬 스코프(자신의 스
 innerFunc이 호출될 때 스코프 체인은 전역 객체, outerFunc의 활성 객체, innerFunc 자기 자신의 스코프를 가리키는 활성 객체를 순차적으로 바인딩한다. 스코프 체인이 바인딩한 객체가 렉시컬 스코프의 실체이다.
 
 변수 x를 찾는 경우 스코프 체인을 따라 다음과 같은 동작을 한다.
+
 1. innerFunc 함수 스코프에서 변수 x를 검색한다.
 2. (1번이 실패한 경우) outerFunc 함수 스코프에서 변수 x를 검색한다.
 3. (2번이 실패한 경우) 전역 스코프에서 변수 x를 검색한다.
@@ -651,7 +761,9 @@ innerFunc이 호출될 때 스코프 체인은 전역 객체, outerFunc의 활�
 ```javascript
 function outerFunc() {
   var x = 10;
-  var innerFunc = function() { console.log(x); }
+  var innerFunc = function () {
+    console.log(x);
+  };
   return innerFunc;
 }
 
@@ -663,12 +775,14 @@ function outerFunc() {
 var inner = outerFunc();
 inner(); // 10
 ```
+
 outerFunc은 innerFunc을 반환하고 소멸했지만 놀랍게도 innerFunc은 outerFunc의 x를 참조해온다.<br/>
 자신을 포함하고 있는 외부함수보다 내부함수가 더 오래 유지되는 경우, <u>**외부함수 밖에서 내부함수가 호출되더라도 외부함수의 지역 변수에 접근할 수 있는데 이러한 함수를 클로저(Closure)라고 한다.**</u>
 
 <br/>
 
 난해했던 정의로 다시 돌아가본다.
+
 > A Closure is the combination of a function and the lexical environment within which that function was declared.<br/> _**클로저는 함수와 그 함수가 선언되었을 때의 렉시컬 환경과의 조합이다.**_
 
 "함수"는 innerFunc을 말하는 것이고 "렉시컬 환경"은 innerFunc이 정의되었던 스코프를 의미한다.
@@ -676,10 +790,13 @@ outerFunc은 innerFunc을 반환하고 소멸했지만 놀랍게도 innerFunc은
 즉, **클로저는 반환된 내부함수가 자신이 선언되었을 때의 환경을 기억하여 자신이 선언된 환경 밖에서 호출되어도 그 환경에 접근할 수 있는 함수를 말한다.**
 
 ## 클로저의 활용
+
 ### 상태 유지 및 전역 변수 사용 억제
+
 현재 상태를 기억하고 변경된 최신 상태를 유지하는 것은 클로저의 가장 큰 장점이다.
+
 ```javascript
-var btn = document.querySelector('.btn')
+var btn = document.querySelector(".btn");
 
 // toggle은 즉시 실행 함수
 var toggle = (function () {
@@ -688,12 +805,13 @@ var toggle = (function () {
   // 1. 클로저 반환
   return function () {
     // 2. 상태 변경
-    isShow = !isShow
-  }
+    isShow = !isShow;
+  };
 })();
 // 3. 이벤트 프로퍼티에 클로저 할당
 btn.onclick = toggle;
 ```
+
 1. 즉시 실행 함수는 함수를 반환하고 즉시 소멸한다. toggle이 반환하는 함수는 자신이 생성되었을 때의 렉시컬 환경에 속한 isShow를 기억하는 클로저다.
 2. 클로저를 이벤트 핸들러로서 이벤트 프로퍼티에 할당했다. 이를 제거하지 않는 한 렉시컬 환경의 isShow는 소멸하지 않고 현재 상태를 기억한다.
 3. 버튼을 클릭하면 클로저가 호출된다. 이 때 isShow의 값이 토글되며 isShow는 클로저에 의해 참조되고 있기 때문에 유효하고 최신 상태를 계속해서 유지한다.
@@ -703,6 +821,7 @@ btn.onclick = toggle;
 하지만 전역 변수는 누구나 접근 가능하므로 의도치 않은 값의 변경이 일어날 수 있다. 상태 변경이나 가변 데이터를 피하고 불변(immutability)을 지향하는 함수형 프로그래밍에서 side effect를 최대한 억제하여 오류를 피하기 위해 클로저는 적극적으로 사용된다.
 
 ### 정보의 은닉
+
 ```javascript
 function Counter() {
   this.name = "cute mole";
@@ -723,9 +842,10 @@ console.log(counter.name); // cute mole -> 프로퍼티는 인스턴스를 통�
 console.log(counter.increase()); // [ 'cute mole', 1 ]
 console.log(counter.decrease()); // [ 'cute mole', 0 ]
 ```
+
 생성자 함수 Counter는 increase, decrease 메서드를 갖는 인스턴스를 생성한다.
 
-이 메서드들은 this에 바인딩된 name과 같은 프로퍼티 뿐만 아니라 자신이 생성했을 때의 렉시컬 환경에 속한 변수 counter를 기억하고 서로 공유한다. 
+이 메서드들은 this에 바인딩된 name과 같은 프로퍼티 뿐만 아니라 자신이 생성했을 때의 렉시컬 환경에 속한 변수 counter를 기억하고 서로 공유한다.
 
 이 때 생성자 함수 Counter의 변수 counter는 this에 바인딩된 프로퍼티가 아니라 변수이다.
 this에 바인딩된 프로퍼티라면 생성한 인스턴스를 통해 외부에서 접근 가능한 `public` 프로퍼티가 되지만 변수 counter는 접근 불가능 하다.
