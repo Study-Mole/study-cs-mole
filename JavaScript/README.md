@@ -3,11 +3,9 @@
 - [구조 분해 할당 (Destructing assignment)](#구조-분해-할당-destructing-assignment)
 - [`const` vs `function`](#const-vs-function)
 - [화살표 함수](#화살표-함수)
-  <<<<<<< HEAD
-- # [`==` vs `===` (Equality Operators)](#-vs--equality-operators)
+- [`==` vs `===`](#-vs--equality-operators)
 - [클로저](#클로저-closure)
   - [클로저의 활용](#클로저의-활용)
-    > > > > > > > 4cd2269a323ddbd646de9291d334e48e2a26ae89
 
 ## 구조 분해 할당 (Destructing assignment)
 

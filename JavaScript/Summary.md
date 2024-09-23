@@ -3,7 +3,7 @@
 - [구조 분해 할당 (Destructing assignment)](#구조-분해-할당-destructing-assignment)
 - [`const` vs `function`](#const-vs-function)
 - [화살표 함수](#화살표-함수)
-- [`==` vs `===` (Equality Operators)](#-vs--equality-operators)
+- [`==` vs `===`](#-vs--equality-operators)
 - [클로저](#클로저-closure)
 
 
@@ -17,7 +17,7 @@
 ## 화살표 함수
 화살표 함수는 ES6에서 도입된 간결한 함수 선언 방식으로, `function` 키워드 대신 `=>`를 사용하여 작성됩니다. 일반 함수와 다르게 메서드, 생성자 함수, `addEventListner` 콜백에서 `this`가 객체를 참조하지 않고 상위 스코프를 참조하므로 이런 상황에서는 일반 함수를 사용하는 것이 더 적합합니다.
 
-## `==` vs `===` (Equality Operators)
+## `==` vs `===`
 `==`과 `===`는 동등 비교를 위해 사용되는 연산자이다. `===`은 값과 타입이 모두 일치하는지 엄격하게 비교한다. 반면에 `==`은 강제 형변환 후에 비교 연산을 수행하기 때문에 비교적 느슨하다. `==`은 형변환으로 인해 의도치 않은 상황이 발생할 수 있기 때문에 개발자가 원하는 동등 비교 시에는 `===`를 사용하는 것이 좋다.
 
 ## 클로저 (Closure)
