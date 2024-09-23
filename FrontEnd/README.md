@@ -2,7 +2,6 @@
 
 - [브라우저 동작 과정](#브라우저-동작-과정)
 - [REST API](#rest-api)
-
 ---
 
 ## 브라우저 동작 과정
@@ -19,7 +18,7 @@ Google Chrome, Apple의 Safari, Microsoft Edge, Mozilla의 FireFox 등이 있다
 
 사용자가 브라우저에 웹 페이지 주소를 입력하면 웹 브라우저와 웹 서버는 아래와 같이 통신한다.
 
-![네트워크 동작 과정](../images//network.jpg)
+![네트워크 동작 과정](./images/network.jpg)
 
 1. 사용자가 도메인 주소를 넣으면 DNS를 통해 도메인 주소에 해당하는 IP 주소를 얻는다.
 2. IP 주소 기반으로 HTTP Request가 만들어지고, 해당 IP를 가진 서버에 전송된다.
@@ -30,7 +29,7 @@ Google Chrome, Apple의 Safari, Microsoft Edge, Mozilla의 FireFox 등이 있다
 
 브라우저는 아래와 같은 구조를 가진다.
 
-![브라우저 구조](../images/browser.jpg)
+![브라우저 구조](./images/browser.jpg)
 
 - `User Interface`: 요청한 페이지를 보여주는 창 이외의 모든 UI
   - ex) 주소창, 새로고침, 북마크 등
@@ -150,3 +149,5 @@ HTTP 기반의 요청-응답 구조로 자원 관리와 상태 비저장성을 �
 - TCP/IP Socket: 저수준의 네트워크 통신으로 양방향 연결을 통해 데이터 전송.
 - gRPC: 빠르고 효율적인 바이너리 기반의 원격 프로시저 호출(RPC) 프로토콜, 주로 마이크로서비스 간 통신에 사용.
 - WebSocket: 지속적인 양방향 통신을 지원하는 프로토콜로, 실시간 데이터 전송에 적합.
+
+
