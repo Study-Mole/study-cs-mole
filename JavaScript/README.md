@@ -910,11 +910,11 @@ function Mole(name, age) {
   };
 }
 
-const myMole = new Car("yubin", "25");
+const myMole = new Mole("yubin", "25");
 console.log(myMole.describe()); // "This mole is yubin. And she is 25."
 ```
 
-위 코드에서 `new Car('yubin', '25');`가 실행되면, `Mole.prototype`을 상속하는 새 객체가 생성된다.
+위 코드에서 `new Mole('yubin', '25');`가 실행되면, `Mole.prototype`을 상속하는 새 객체가 생성된다.
 <br>`Mole` 함수가 호출되며, `this`는 새로 만들어진 객체를 가리킨다. `this.name`과 `this.age` 속성에 값이 할당된다.
 <br>생성된 객체가 `myMole` 변수에 할당된다.
 
