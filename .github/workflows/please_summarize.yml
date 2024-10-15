@@ -18,7 +18,7 @@ jobs:
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   script: |
-                      const members = ['yuna872', 'u0empty'];
+                      const members = ['yuna872', 'u0empty', 'shun1423'];
 
                       const prActor = process.env.GITHUB_ACTOR;
                       const availableReviewers = members.filter(
