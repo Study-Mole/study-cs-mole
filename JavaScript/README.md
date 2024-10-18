@@ -1272,7 +1272,7 @@ console.log(songNames); // nothing but, Unpainted Canvas, How to love, Right Thr
 HTML 문서의 각 요소들은 태그 안에 태그가 위치하는 **계층적** 형식을 보인다.<br/>
 이러한 계층적 구조 때문에 특정 요소에 이벤트가 발생할 경우 연쇄적 이벤트 흐름이 일어나게 된다.
 
-이러하 현상을 이벤트 전파(Event Propagation)라 하며, 전파 방향에 따라 두 가지로 구분된다.
+이러한 현상을 이벤트 전파(Event Propagation)라 하며, 전파 방향에 따라 두 가지로 구분된다.
 
 1. 버블링(Bubbling): 자식 태그에서 발생한 이벤트가 부모 태그로 전파
 2. 캡처링(Capturing): 자식 태그에서 발생한 이벤트가 부모 태그부터 시작하여 안쪽 자식 태그로 전파
