@@ -35,14 +35,20 @@ jobs:
             const comment1 = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`
             const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`
 
-            core.setOutput('comment', comment1)
-            core.setOutput('comment', comment2)
+            core.setOutput('comment1', comment1)
+            core.setOutput('comment1', comment2)
             core.setOutput('reviewer', randomReviewer)
 
-      - name: add_pr_comment
+      - name: add_pr_comment1
         uses: thollander/actions-comment-pull-request@v1
         with:
-          message: ${{ steps.pick_reviewer.outputs.comment }}
+          message: ${{ steps.pick_reviewer.outputs.comment1 }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: add_pr_comment2
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: ${{ steps.pick_reviewer.outputs.comment2 }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: assign_reviewer
