@@ -1,44 +1,51 @@
 name: "pick random reviewer"
 
 on:
-    pull_request:
-        types: [opened]
-        branches:
-            - main
+  pull_request:
+    types: [opened]
+    branches:
+      - main
 
 jobs:
-    pick-random-reviewer:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
+  pick-random-reviewer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-            - name: pick_reviewer
-              id: pick_reviewer
-              uses: actions/github-script@v3
-              with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
-                  script: |
-                      const members = ['yuna872', 'u0empty', 'shun1423'];
+      - name: pick_reviewer
+        id: pick_reviewer
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const members = ['yuna872', 'u0empty', 'shun1423'];
 
-                      const prActor = process.env.GITHUB_ACTOR;
-                      const availableReviewers = members.filter(
-                        (member) => member.toUpperCase() !== prActor?.toUpperCase()
-                      );
+            const prActor = process.env.GITHUB_ACTOR;
+            const availableReviewers = members.filter(
+              (member) => member.toUpperCase() !== prActor?.toUpperCase()
+            );
 
-                      const randomReviewer =  availableReviewers[Math.floor(Math.random() * (members.length - 1))]
-                      const comment = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`
 
-                      core.setOutput('comment', comment)
-                      core.setOutput('reviewer', randomReviewer)
+            const randomReviewer =  availableReviewers[Math.floor(Math.random() * (members.length - 1))]
+            const availableMergeMen = availableReviewers.filter(
+              (member) => member.toUpperCase() !== randomReviewer?.toUpperCase()
+            );
+            const mergeMan = availableMergeMen[Math.floor(Math.random() * (members.length - 1))]
+            const comment1 = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`
+            const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`
 
-            - name: add_pr_comment
-              uses: thollander/actions-comment-pull-request@v1
-              with:
-                  message: ${{ steps.pick_reviewer.outputs.comment }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            core.setOutput('comment', comment1)
+            core.setOutput('comment', comment2)
+            core.setOutput('reviewer', randomReviewer)
 
-            - name: assign_reviewer
-              uses: madrapps/add-reviewers@v1
-              with:
-                  reviewers: ${{ steps.pick_reviewer.outputs.reviewer }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+      - name: add_pr_comment
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: ${{ steps.pick_reviewer.outputs.comment }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: assign_reviewer
+        uses: madrapps/add-reviewers@v1
+        with:
+          reviewers: ${{ steps.pick_reviewer.outputs.reviewer }}
+          token: ${{ secrets.GITHUB_TOKEN }}
