@@ -36,8 +36,9 @@ jobs:
             const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`
 
             core.setOutput('comment1', comment1)
-            core.setOutput('comment1', comment2)
+            core.setOutput('comment2', comment2)
             core.setOutput('reviewer', randomReviewer)
+            core.setOutput('mergeMan', mergeMan)
 
       - name: add_pr_comment1
         uses: thollander/actions-comment-pull-request@v1
@@ -55,4 +56,10 @@ jobs:
         uses: madrapps/add-reviewers@v1
         with:
           reviewers: ${{ steps.pick_reviewer.outputs.reviewer }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: assign_mergeMan
+        uses: madrapps/add-reviewers@v1
+        with:
+          reviewers: ${{ steps.pick_reviewer.outputs.mergeMan }}
           token: ${{ secrets.GITHUB_TOKEN }}
