@@ -8,7 +8,7 @@ HTML 문서의 각 요소들은 태그 안에 태그가 위치하는 **계층적
 1. 버블링(Bubbling): 자식 태그에서 발생한 이벤트가 부모 태그로 전파
 2. 캡처링(Capturing): 자식 태그에서 발생한 이벤트가 부모 태그부터 시작하여 안쪽 자식 태그로 전파
 
-| !Event Bubbling(./images/event-bubble.png) | !Event Capturing(./images/event-capture.png) |
+| ![Event Bubbling](./images/event-bubble.png) | ![Event Capturing](./images/event-capture.png) |
 | -------------------------------------------- | ---------------------------------------------- |
 
 ### 이벤트 버블링

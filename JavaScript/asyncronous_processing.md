@@ -35,7 +35,7 @@ Event Loop는 call stack이 완전히 비어있는지 수시로 확인하고, �
 
 요약하자면,
 
-!Event Loop(./images/event-loop.png)
+![Event Loop](./images/event-loop.png)
 
 1. call stack에 들어온 비동기 함수는 백그라운드로 옮겨져 실행된다.
 2. 비동기 함수의 처리가 완료되면 callback 함수들은 Event Queue에 FIFO 구조로 쌓인다.
