@@ -27,10 +27,11 @@ jobs:
 
 
             const randomReviewer =  availableReviewers[Math.floor(Math.random() * (members.length - 1))]
+            console.log(availableReviewers)
             const availableMergeMen = availableReviewers.filter(
               (member) => member.toUpperCase() !== randomReviewer?.toUpperCase()
             );
-            const mergeMan = availableMergeMen[Math.floor(Math.random() * (members.length - 1))]
+            const mergeMan = availableMergeMen[Math.floor(Math.random() * (members.length - 2))]
             const comment1 = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`
             const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`
 
