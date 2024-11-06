@@ -1,4 +1,4 @@
-# FrontEnd Summary
+# FrontEnd > Common Summary
 
 - [브라우저 동작 과정](#브라우저-동작-과정)
 - [REST API](#rest-api)
