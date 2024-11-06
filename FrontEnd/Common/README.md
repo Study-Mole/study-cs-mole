@@ -7,6 +7,7 @@
 - [크로스 브라우징](#크로스-브라우징)
   - [크로스 브라우징 호환성 보장 방법](#크로스-브라우징-호환성-보장-방법)
 - [브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)](#브라우저-저장소의-차이점-localstorage-sessionstorage-cookie)
+
 ---
 
 ## 브라우저 동작 과정
@@ -338,7 +339,6 @@ OS 각각의 요구 방식에 맞게 기능을 자유롭게 구현할 수 있다
 
 <br/>
 
-
 ## 크로스 브라우징
 
 웹 페이지 제작 시 모든 브라우저에서 페이지의 깨짐 없이, 의도한 대로 표시되도록 하는 작업을 말한다.
@@ -461,7 +461,6 @@ import 'core-js/actual';
 
 <br/>
 
-
 ## 브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)
 
 ### Web Storage
@@ -513,4 +512,3 @@ Web Storage의 개념은 키/값 쌍으로 데이터를 저장하고, 키로 데
 
 - [브라우저 저장소 - LocalStorage, SessionStorage, Cookie](https://velog.io/@design0728/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%A0%80%EC%9E%A5%EC%86%8C-LocalStorage-SessionStorage-Cookie)
 - [Cookie🍪 와 Web Storage](https://velog.io/@dbwjd5864/Cookie%EC%99%80-Web-Storage)
-
