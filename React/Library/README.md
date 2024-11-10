@@ -31,7 +31,6 @@ React Hook Form은 Form을 다루는 라이브러리로, 일반적인 제어 컴
 리액트에서 input 값을 받아올 때 일반적으로 state를 만들고 다음과 같이 사용한다.
 
 ```javaScript
-
 const [value, setValue] = useState("");
 const [password, setPassword] = useState("");
 const [email, setEmail] = useState("");
@@ -51,7 +50,6 @@ const [email, setEmail] = useState("");
   value={email}
   onChange={(e) => setEmail(e.target.value)}
 />
-
 ```
 
 제어 컴포넌트는 실시간으로 값이 동기화되는 특징이 있다.
@@ -70,7 +68,7 @@ const [email, setEmail] = useState("");
 
 ### 제어 컴포넌트 vs 비제어 컴포넌트
 
-## ![alt text](image.png)
+![alt text](image.png)
 
 ### React Hook Form을 쓰는 이유?
 
@@ -106,24 +104,22 @@ React Hook Form의 Controller 함수는 주로 외부 라이브러리와 통합�
 import { useForm, Controller } from 'react-hook-form';
 
 const MyForm = () => {
-const { control, handleSubmit } = useForm();
+  const { control, handleSubmit } = useForm();
 
-const onSubmit = (data) => {
-// 폼 제출 처리...
+  const onSubmit = (data) => {
+    // 폼 제출 처리...
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        name="username"
+        control={control}
+        render={({ field }) => <input {...field} />}
+      />
+    </form>
+  );
 };
-
-return (
-
-<form onSubmit={handleSubmit(onSubmit)}>
-<Controller
-name="username"
-control={control}
-render={({ field }) => <input {...field} />}
-/>
-</form>
-);
-};
-
 ```
 
 ### rules
@@ -133,18 +129,15 @@ rules는 입력 필드의 검증 규칙을 정의할 때 사용하며, Controlle
 ### 예시
 
 required: 필수 항목으로 설정
-minLength / maxLength: 최소 및 최대 입력 길이 설정
+<br/>minLength / maxLength: 최소 및 최대 입력 길이 설정
 
 ```Javascript
-
 rules={{ required: "This field is required" }}
-
 
 rules={{
   minLength: { value: 3, message: "At least 3 characters required" },
   maxLength: { value: 10, message: "Up to 10 characters allowed" }
 }}
-
 ```
 
 ---
@@ -157,35 +150,33 @@ Register는 직접적으로 폼 요소를 등록할 때 사용된다.
 import { useForm } from 'react-hook-form';
 
 const MyForm = () => {
-const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
-const onSubmit = (data) => {
-// 폼 제출 처리...
+  const onSubmit = (data) => {
+    // 폼 제출 처리...
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register('username')} />
+    </form>
+  );
 };
-
-return (
-
-<form onSubmit={handleSubmit(onSubmit)}>
-<input {...register('username')} />
-</form>
-);
-};
-
 ```
 
 Register로 유효성 검사를 설정할 수 있으며, 두 가지 타입의 인자를 받는다.
 
 ```Javascript
-validation 규칙만 전달
+// validation 규칙만 전달
 { maxLength: 2 }
 
-validation 규칙과 에러 메시지 함께 전달
+// validation 규칙과 에러 메시지 함께 전달
 { maxLength: { value: 2, message: '땡 틀렸습니다' }}
 ```
 
 ---
 
-### field 속성 설명
+### field 속성
 
 field에는 react-hook-form이 폼을 관리하기 위해 설정해 놓은 몇 가지 중요한 속성이 포함되어 있다.
 
@@ -212,7 +203,7 @@ const { handleSubmit, formState: { isDirty, isValid, errors }} = useForm({ mode:
 
 **formState의 프로퍼티들은 구조 분해 할당 방식으로 사용해야 최신 값을 반환한다. formState는 프록시 객체로 구현되어 있어, 구조 분해 방식이 아닌 .프로퍼티로 접근하면 최신 상태가 반영되지 않는다.**
 
-```
+```JavaScript
 // ❌ formState.isValid is accessed conditionally,
 // so the Proxy does not subscribe to changes of that state
 return <button disabled={!formState.isDirty || !formState.isValid} />;
@@ -247,26 +238,23 @@ const { handleSubmit, formState: { errors } } = useForm({ mode: "onChange" });
 
 // Default Values
 const { handleSubmit, reset, formState: { isDirty } } = useForm({
-defaultValues: {
-username: "john_doe",
-email: "john@example.com",
-},
+  defaultValues: {
+    username: "john_doe",
+    email: "john@example.com",
+  },
 });
 ```
 
 ---
 
-### **두 함수의 차이**
+### **Controller vs Register**
 
-편의성, 유연성, 성능 면에서의 비교
-
-- Controller의 편의성:
-  - 외부 라이브러리와의 연동이 간편하며, 컴포넌트 간의 상태를 쉽게 전달할 수 있다.
-- Register의 편의성:
-  - 직접적인 등록으로 렌더링 효율이 높다.
+- 편의성:
+  - `Controller`는 외부 라이브러리와의 연동이 간편하며, 컴포넌트 간의 상태를 쉽게 전달할 수 있다.
+  - `Register`는 직접적인 등록으로 렌더링 효율이 높다.
 - 유연성:
-  - Controller는 외부 라이브러리와의 통합에 유리하나, 사용자 정의 요소에 적용하기 어렵다.
-  - Register는 직접적인 등록으로 자유도가 높으며, 사용자 정의 요소에 적용 가능하다.
-- 성능 면에서의 차이:
-  - 큰 규모의 폼이나 동적인 상황에서 Controller는 렌더링 성능에 유리할 수 있다.
-  - 작은 규모의 폼에서는 Register가 직접적으로 등록되어 렌더링 성능이 우수할 수 있다.
+  - `Controller`는 외부 라이브러리와의 통합에 유리하나, 사용자 정의 요소에 적용하기 어렵다.
+  - `Register`는 직접적인 등록으로 자유도가 높으며, 사용자 정의 요소에 적용 가능하다.
+- 성능:
+  - 큰 규모의 폼이나 동적인 상황에서 `Controller`는 렌더링 성능에 유리할 수 있다.
+  - 작은 규모의 폼에서는 `Register`가 직접적으로 등록되어 렌더링 성능이 우수할 수 있다.
