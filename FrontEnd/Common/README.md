@@ -462,7 +462,6 @@ import 'core-js/actual';
 
 <br/>
 
-
 ## 브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)
 
 ### Web Storage
