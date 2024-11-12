@@ -506,14 +506,13 @@ Web Storage의 개념은 키/값 쌍으로 데이터를 저장하고, 키로 데
 
 - 데이터의 지속성과 엑세스 범위에 특수한 제한이 존재한다.
 - 같은 사이트의 같은 도메인이라도 다른 브라우저라면 서로 다른 영역이 된다.
-- Windows 전역 객체의 LocalStorage라는 컬렉션을 통해 저장과 조회가 이루어진다.
+- Windows 전역 객체의 SessionStorage라는 컬렉션을 통해 저장과 조회가 이루어진다.
 - 일회성 로그인과 같은 일시적인 정보를 저장하기 좋다.
 
 [참고]
 
 - [브라우저 저장소 - LocalStorage, SessionStorage, Cookie](https://velog.io/@design0728/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%A0%80%EC%9E%A5%EC%86%8C-LocalStorage-SessionStorage-Cookie)
 - [Cookie🍪 와 Web Storage](https://velog.io/@dbwjd5864/Cookie%EC%99%80-Web-Storage)
-
 
 ## CORS
 
