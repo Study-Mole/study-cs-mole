@@ -1,11 +1,3 @@
-# React
-
-- [LifeCycle](#lifecycle)
-    - [함수형 컴포넌트의 LifeCycle](#함수형-컴포넌트의-lifecycle)
-- []()
-
-<br/>
-
 ## LifeCycle
 React 컴포넌트에는 생명 주기가 존재한다. 컴포넌트의 수명은 렌더링되기 전 준비 과정에서 시작하여 페이지에서 사라질 때 끝이난다.
 
@@ -141,7 +133,7 @@ componentWillUnmount()
 <br/>
 위의 내용을 그림으로 이미지로 정리해보자.
 
-![컴포넌트 생명 주기](./images/life-cycle.png)
+![컴포넌트 생명 주기](../Images/life-cycle.png)
 
 ## 함수형 컴포넌트의 LifeCycle
 React의 함수형 컴포넌트는 클래스형 컴포넌트를 사용할 필요가 없을 정도로 강력해졌으며, 이를 가능하게 하는 것은 바로 Hooks이다. Hooks는 함수형 컴포넌트에서 클래스형 컴포넌트의 라이프사이클 메서드를 대체할 수 있도록 돕는다.

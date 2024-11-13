@@ -1,10 +1,3 @@
-# TypeScript
-
-- JS vs TS
-- 타입 추론
-- 제네릭
-- [`type` vs `interface`](#type-vs-interface)
-
 ## `type` vs `interface`
 `type`과 `interface`는 <b>객체를 타이핑하기 위해 사용하는 키워드</b>이다. (= 사용 목적이 같다)
 ```

@@ -14,3 +14,51 @@
 
 ## Languages
 <p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+
+# 목차
+
+### Common
+
+- 브라우저 동작 과정
+- REST API
+- 앱 개발 방식
+- 검색엔진 최적화(SEO)
+- 크로스 브라우징
+- 브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)
+
+### Network
+- 
+
+
+### TDD
+- Jest
+- Test Code
+
+### JavaScript
+
+- 호이스팅
+- 구조 분해 할당 (Destructing assignment)
+- `const` vs `function`
+- 화살표 함수
+- `==` vs `===`
+- 클로저
+  - 클로저의 활용
+- `new` 연산자
+- '배열 처리 함수'
+  - `map()`
+  - `filter()`
+  - `reduce()`
+  - `map(), filter(), reduce()`
+- 이벤트 버블링
+- 자바스크립트가 비동기를 처리하는 방법
+
+### TypeScript
+- JS vs TS
+- 타입 추론
+- 제네릭
+- `type` vs `interface`
+
+### React
+
+- LifeCycle
+    - 함수형 컴포넌트의 LifeCycle
