@@ -1,10 +1,6 @@
-## 배열 처리 함수
-- [`map()`](#map)
-- [`filter()`](#filter)
-- [`reduce()`](#reduce)
-- [`map(), filter(), reduce()`](#map-filter-reduce)
+# 배열 처리 함수
 
-### 함수형 프로그래밍
+## 함수형 프로그래밍
 
 함수형 프로그래밍은 함수의 출력 값이 오직 함수로 전달된 인자에만 의존하는 프로그래밍 패러다임으로, 동일한 인자를 사용해 함수를 호출하면 항상 같은 결과를 반환한다.
 <br>이를 **참조 투명성**이라고 하며, 함수형 프로그래밍의 핵심 개념 중 하나이다.
@@ -279,5 +275,3 @@ console.log(songNames); // nothing but, Unpainted Canvas, How to love, Right Thr
 [참고]
 
 - [Learn map, filter and reduce in Javascript](https://medium.com/@joomiguelcunha/learn-map-filter-and-reduce-in-javascript-ea59009593c4)
-
-<br>

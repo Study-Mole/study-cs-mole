@@ -1,24 +1,24 @@
-## REST API
+# REST API
 
 HTTP 기반의 요청-응답 구조로 자원 관리와 상태 비저장성을 특징으로 하는 웹 서비스이다.
 <br>Representational State Transfer 원칙을 따르는 모든 API를 의미한다.
 
-### REST API vs RESTful API
+## REST API vs RESTful API
 
 `REST API`와 `RESTful API`는 자주 혼용되지만, 실제로는 조금 다른 개념이다.
 <br>REST 원칙을 다소 느슨하게 적용해도 `REST API`라고 부를 수 있는 반면, `RESTful API`는 REST 원칙을 지대로 구현한 API를 지칭하는 데 더 중점을 둔다.
 
-### REST (Representational State Transfer)
+## REST (Representational State Transfer)
 
 이름으로 구분되는(Representational) 자원의 상태(State)를 주고받는(Transfer) 모든 것을 의미한다.
 
-**구성 요소**
+### 구성 요소
 
 - 자원(Resource) : HTTP URI
 - 자원에 대한 행위(Verb) : HTTP Method (GET, POST, PUT, PATCH, DELETE)
 - 자원에 대한 행위의 내용 (Representations) : HTTP Message Pay Load
 
-**기본 원칙**
+### 기본 원칙
 
 - Client-Server 구조
 
@@ -75,5 +75,3 @@ HTTP 기반의 요청-응답 구조로 자원 관리와 상태 비저장성을 �
 - TCP/IP Socket: 저수준의 네트워크 통신으로 양방향 연결을 통해 데이터 전송.
 - gRPC: 빠르고 효율적인 바이너리 기반의 원격 프로시저 호출(RPC) 프로토콜, 주로 마이크로서비스 간 통신에 사용.
 - WebSocket: 지속적인 양방향 통신을 지원하는 프로토콜로, 실시간 데이터 전송에 적합.
-
-<br>

@@ -1,4 +1,4 @@
-## `new` 연산자
+# `new` 연산자
 
 사용자 정의 객체 타입 또는 내장 객체 타입의 인스턴스를 생성하는 연산자이다.
 <br>아래와 같은 형태를 갖는다.
@@ -24,7 +24,7 @@ const yubin = new Mole("yubin", 25, 165);
 console.log(yubin.height); // 165
 ```
 
-### 사용자 정의 객체
+## 사용자 정의 객체
 
 `new` 연산자는 함수(생성자 함수)를 통해 새로운 객체를 생성할 때 사용한다.
 <br>`new`를 통해 생성된 객체는 해당 함수의 `prototype`을 상속받는다.
@@ -57,7 +57,7 @@ console.log(myMole.describe()); // "This mole is yubin. And she is 25."
 
 <br>
 
-### 속성이 또 다른 객체일 때
+## 속성이 또 다른 객체일 때
 
 ```javascript
 function Mole(mind) {
@@ -84,7 +84,7 @@ console.log(myPerson.describe()); // "She is yuna with strong mind."
 
 <br>
 
-### 이전에 정의된 객체에 속성을 추가할 때
+## 이전에 정의된 객체에 속성을 추가할 때
 
 ```javascript
 function Mole() {}
@@ -115,5 +115,3 @@ console.log(yubin.run); // Hokey
 [참고]
 
 - [new operator | mdn web docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/new)
-
-<br>

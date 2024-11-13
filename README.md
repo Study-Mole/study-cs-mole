@@ -1,64 +1,76 @@
 ## About
+
 두더지들의 FrontEnd CS 스터디 기록
 
+## Purpose
+
+- 프론트엔드 기술 지식 총정리 맹글기
+- 기술 면접 준비
+- 약간의 강제성
+
+## PR Rules & Roles
+
+1. **작성자**는 원하는 CS 주제글을 정리하여 주 1개 이상의 PR을 올립니다.
+   - 마크다운 문법이 의도한대로 적용되었는지 preview 기능을 활용하여 검토
+   - asignee & label 달기
+   - 기한: 금요일
+2. **리뷰어**는 PR Review 후 `Summary.md`에 요약글을, `Question.md`에 질문 목록(1개 이상)을 작성합니다.
+   - 기한: 다음주 수요일
+3. **머지맨**은 `Question.md`에 답변을 달고, PR Review 및 `Summary.md` 검토 후 머지하면 해당 주제의 학습이 마무리됩니다.
+   - 질문이 겹치거나 통합 가능할 경우 편집
+   - 기한: 다음주 금요일
+
 ## Rules
-- 각 구성원은 매주 한 가지 이상의 주제를 공부하고, 해당 내용을 주제별 폴더 하위의 `README.md` 파일에 정리합니다.
-- Reviewer는 정리된 글을 읽고, 궁금한 점을 질문하거나 추가되면 좋을 내용을 제안할 수 있습니다.
-- 그 후, 글의 내용을 요약하여 `Summary.md` 파일에 정리합니다.
-- 작성자는 Reviewer가 작성한 요약을 검토한 뒤, 최종 확인을 거쳐 PR을 Merge하면 해당 주제의 학습이 마무리됩니다.
+
+- 작성자는 각 주제에 맞는 폴더에 `주제명.md` 파일을 생성합니다.
+- 폴더 추가 등 구조의 변경이 필요할 경우, 회의를 통해 결정합니다.
+- 파일명에 사용되는 주제는 한글과 영어 모두 가능합니다.
+- 이미지 파일을 포함한 모든 파일 이름의 띄어쓰기는 언더라인(\_)으로 연결해 주세요.
+- 이미지 파일명은 내용이 명확히 드러나도록 작성하고, 직접 제작한 파일이 아닌 경우 출처를 반드시 명시해 주세요.
+  - `image.png` ❌ → `study_mole.png` ✅
+
+## Architecture
+
+```plaintext
+📁 .
+├── 📄 README.md
+├── 📂 Images
+├── 📂 Common
+│   ├── 📄 Summary.md
+│   ├── 📄 Question.md
+│   ├── 📄 주제명1.md
+│   ├── 📄 주제명2.md
+│   ┆         .
+│   ┆         .
+│   └── 📄 주제명N.md
+├── 📂 TDD
+│   ├── 📄 Summary.md
+│   ├── 📄 Question.md
+│   └── 📄 주제명.md
+├── 📂 Network
+│   ├── 📄 Summary.md
+│   ├── 📄 Question.md
+│   └── 📄 주제명.md
+├── 📂 JavaScript
+│   ├── 📄 Summary.md
+│   ├── 📄 Question.md
+│   └── 📄 주제명.md
+├── 📂 TypeScript
+│   ├── 📄 Summary.md
+│   ├── 📄 Question.md
+│   └── 📄 주제명.md
+└── 📂 React
+    ├── 📄 Summary.md
+    ├── 📄 Question.md
+    └── 📄 주제명.md
+```
 
 ## Author
+
 - yuna872
 - u0empty
 - shun1423
 
 ## Languages
+
 <p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
-
-# 목차
-
-### Common
-
-- 브라우저 동작 과정
-- REST API
-- 앱 개발 방식
-- 검색엔진 최적화(SEO)
-- 크로스 브라우징
-- 브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)
-
-### Network
-- 
-
-
-### TDD
-- Jest
-- Test Code
-
-### JavaScript
-
-- 호이스팅
-- 구조 분해 할당 (Destructing assignment)
-- `const` vs `function`
-- 화살표 함수
-- `==` vs `===`
-- 클로저
-  - 클로저의 활용
-- `new` 연산자
-- '배열 처리 함수'
-  - `map()`
-  - `filter()`
-  - `reduce()`
-  - `map(), filter(), reduce()`
-- 이벤트 버블링
-- 자바스크립트가 비동기를 처리하는 방법
-
-### TypeScript
-- JS vs TS
-- 타입 추론
-- 제네릭
-- `type` vs `interface`
-
-### React
-
-- LifeCycle
-    - 함수형 컴포넌트의 LifeCycle

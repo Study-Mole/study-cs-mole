@@ -1,4 +1,4 @@
-## 크로스 브라우징
+# 크로스 브라우징
 
 웹 페이지 제작 시 모든 브라우저에서 페이지의 깨짐 없이, 의도한 대로 표시되도록 하는 작업을 말한다.
 
@@ -8,7 +8,7 @@
 
 ## 크로스 브라우징 호환성 보장 방법
 
-**1. CSS Reset, Normalize**
+### 1. CSS Reset, Normalize
 
 각 브라우저는 고유의 기본 스타일을 가지고 있어 스타일링을 전혀 하지 않은 HTML이라 할지라도 최소한의 형태를 보장한다.
 <br>그래서 CSS를 통일하지 않고 프로젝트를 진행하게 되면 어떤 브라우저에서는 의도한 디자인이 뜨지만 다른 브라우저에서는 그렇지 않는 이슈가 발생한다.
@@ -51,7 +51,7 @@ Reset과 다르게 github을 통해 지속적인 업데이트가 이루어지고
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
 ```
 
-<br>**2. CSS Vendor Prefix**
+### 2. CSS Vendor Prefix
 
 특정 브라우저에서만 제공되는 스타일이 있을 수 있다.
 <br>그러한 스타일을 사용할 때 `-webkit-` (Chrome, Safari), `-moz-` (Firefox), `-o-` (Opera), `-ms-` (Internet Explorer) 등의 접두사를 붙여주면 된다.
@@ -64,7 +64,7 @@ Reset과 다르게 github을 통해 지속적인 업데이트가 이루어지고
 }
 ```
 
-<br>**3. Polyfill**
+### 3. Polyfill
 
 구형 브라우저에는 `Promise`나 `Set` 객체가 없는 경우가 있다.
 <br>`Array.prototype.at()` API는 Chrome 92 이상에서만 지원된다.
@@ -93,7 +93,7 @@ import 'core-js/actual';
 이는 User-agent에 따라 동적으로 Polyfill 스크립트를 생성하게 함으로써,
 <br>최신 브라우저에서는 아무 Polyfill도 내려주지 않고, 구형 브라우저에서는 필요한 Polyfill만 내려주는 방식으로 브라우저가 꼭 필요한 Polyfill 스크립트만 내려받도록 만들어 개선할 수 있다.
 
-<br>**4. 점진적 향상(Progressive Enhancement)과 우아한 성능 저하(Graceful Degradation)**
+### 4. 점진적 향상(Progressive Enhancement)과 우아한 성능 저하(Graceful Degradation)
 
 `점진적 향상(Progressive Enhancement)`은 기본적인 기능을 모든 브라우저에서 제공하면서, 최신 브라우저에서는 추가 기능을 경험할 수 있도록 설계하는 방법이다.
 <br>계층형으로 발전시키기 때문에 하나의 계층에서는 문제가 거의 없다.
@@ -105,7 +105,7 @@ import 'core-js/actual';
 <br>모바일 최적화 시, 우선 데스크탑을 기준으로 웹 사이트를 개발한 다음 모바일에서도 지원 가능하도록 기능과 디자인을 단계적으로 조절하는 것도 우아한 성능 저하의 원칙을 적용한 것이다.
 <br>모든 사람에게 최상의 경험을 제공하는 것이 아니라 최신 버전의 브라우저를 위한 솔루션을 개발하는 것을 목표로 한다.
 
-<br>**5. 개발자 도구 및 테스트 도구 활용**
+### 5. 개발자 도구 및 테스트 도구 활용
 
 - [Can I Use](https://caniuse.com): CSS 사용 범위 확인
 - [BrowserStack](https://www.browserstack.com/), [Sauce Labs](https://saucelabs.com/): 크로스 브라우징 테스트 웹 서비스
@@ -117,5 +117,3 @@ import 'core-js/actual';
 
 - [Normalize, Reset 뭘써야 할까?](https://velog.io/@cjy0029/Normalize-Reset-%EB%AD%98%EC%8D%A8%EC%95%BC-%ED%95%A0%EA%B9%8C)
 - [똑똑하게 브라우저 Polyfill 관리하기](https://toss.tech/article/smart-polyfills)
-
-<br/>
