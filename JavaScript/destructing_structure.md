@@ -1,10 +1,8 @@
-## 구조 분해 할당 (Destructing assignment)
+# 구조 분해 할당 (Destructing assignment)
 
-### 구조 분해 할당이란?
+배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식이다.
 
-- 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 JavaScript 표현식이다.
-
-### 맛보기
+## 맛보기
 
 코드로 대강 파악해보자.
 
@@ -29,7 +27,7 @@ console.log(b); // 20
 console.log(rest); // {c: 30, d: 40}
 ```
 
-### 기본 변수 할당
+## 기본 변수 할당
 
 느낌이 좀 오는지?
 <br>먼저 배열 분해를 살펴보자.
@@ -41,7 +39,7 @@ console.log(y); // 1
 console.log(z); // 2
 ```
 
-### 선언에서 분리한 할당
+## 선언에서 분리한 할당
 
 변수 선언이 분리되어도 구조 분해로 값을 할당할 수 있다.
 
@@ -52,7 +50,7 @@ console.log(a); // 1
 console.log(b); // 2
 ```
 
-### 기본값
+## 기본값
 
 분해한 값이 `undefined` 라면?
 <br>기본값이 없으면 그대로 `undefined`를, 있다면 그 기본값을 대신 사용한다.
@@ -78,7 +76,7 @@ console.log(a); // 5
 console.log(b); // undefined
 ```
 
-### 변수 교환
+## 변수 교환
 
 하나의 구조 분해 표현식으로 두 변수의 값을 교환할 수 있다.
 <br>구조 분해 할당 개념을 찾아보게 된 계기이기도 한! 증말 간단하다.
@@ -92,7 +90,7 @@ console.log(a); // 2
 console.log(b); // 1
 ```
 
-### 함수가 반환한 배열 분석
+## 함수가 반환한 배열 분석
 
 함수도 구조 분해 할당이 가능하다.
 
@@ -107,7 +105,7 @@ console.log(a); // 1
 console.log(b); // 2
 ```
 
-### 일부 반환값 무시
+## 일부 반환값 무시
 
 필요없는 값은 건너뛸 수 있다.
 
@@ -128,7 +126,7 @@ console.log(b); // 3
 var [, ,] = f();
 ```
 
-### 나머지 할당하기
+## 나머지 할당하기
 
 [맛보기](#맛보기)의 rest와 같다.
 <br>나머지 요소는 항상 선언된 변수 중 가장 뒤에 위치해야 한다.
@@ -141,7 +139,7 @@ console.log(b); // [2, 3, 4]
 var [...c, d] // ❗SyntaxError : 나머지 요소 뒤에 쉼표는 금물
 ```
 
-### 정규 표현식과 함께 활용해보기
+## 정규 표현식과 함께 활용해보기
 
 정규 표현식의 exec() 메서드는 일치하는 부분을 찾으면
 <br>그 문자열에서 정규식과 일치하는 부분 전체를 배열[0]에,
@@ -161,7 +159,7 @@ function letsParse(url) {
 console.log(letsParse("https://github.com/Study-Mole/study-cs-mole")); // "https"
 ```
 
-### 기본 할당
+## 기본 할당
 
 객체 구조 분해이다.
 
@@ -172,7 +170,7 @@ console.log(p); // 42
 console.log(q); // true
 ```
 
-### 선언 없는 할당
+## 선언 없는 할당
 
 배열에서 선언 없는 할당이 가능한 것과 같은 맥락이다.
 <br>배열 구조 분해와 다르게 할당문을 둘러싼 `(...)`가 필요하다.
@@ -183,7 +181,7 @@ let a, b;
 ({ a, b } = { a: 1, b: 2 });
 ```
 
-### 기본값
+## 기본값
 
 객체로부터 해체된 값이 `undefined`인 경우, 기본값을 할당할 수 있다.
 
@@ -194,7 +192,7 @@ console.log(a); // 3
 console.log(b); // 5 기본값 줬질옹
 ```
 
-### 새로운 변수 이름으로 할당하기
+## 새로운 변수 이름으로 할당하기
 
 속성을 해체하여 원래 속성명을 다른 이름의 변수에 할당할 수 있다.
 
@@ -206,7 +204,7 @@ console.log(age); // 24
 console.log(gamja); // true
 ```
 
-### 중첩된 객체/배열의 구조 분해
+## 중첩된 객체/배열의 구조 분해
 
 살짝 복잡하나, 주석을 잘 따라가보자.
 
@@ -234,7 +232,7 @@ console.log(studyTitle); // "StudyMole"
 console.log(topic); // "Destructing-assignment"
 ```
 
-### for of 반복문과 구조 분해
+## for of 반복문과 구조 분해
 
 좀 더 길지만 비교적 간단하다.
 
@@ -274,7 +272,7 @@ for (let {
 // Name: yuna, Age: 27, Friend: hyehwa
 ```
 
-### 객체 구조 분해에서 rest
+## 객체 구조 분해에서 rest
 
 복잡한 건 여까지. 객체 구조 분해에서도 rest 는 같은 방식으로 동작한다.
 
@@ -285,11 +283,11 @@ console.log(b); // 20
 console.log(rest); // { c: 30, d: 40 }
 ```
 
-### etc.
+## etc.
 
 평소에 자주 사용하는 아래 예시들도 모두 구조 분해 할당에 해당한다.
 
-**1. 함수의 매개변수 처리**
+### 1. 함수의 매개변수 처리
 
 ```javascript
 function displayUser({ name, age }) {
@@ -297,19 +295,19 @@ function displayUser({ name, age }) {
 }
 ```
 
-**2. 객체 속성의 빠른 접근**
+### 2. 객체 속성의 빠른 접근
 
 ```javascript
 let { username, email } = user;
 ```
 
-**3. 배열 요소의 추출**
+### 3. 배열 요소의 추출
 
 ```javascript
 let [first, second] = [10, 20];
 ```
 
-**4. API 응답 처리**
+### 4. API 응답 처리
 
 ```javascript
 let { data, status } = apiResponse;

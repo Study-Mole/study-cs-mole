@@ -1,9 +1,9 @@
-## `==` vs `===` (Equality Operators)
+# `==` vs `===` (Equality Operators)
 
 각각 느슨한 동등 비교와 엄격한 동등 비교를 위해 사용되는 연산자이다.
 <br>비슷해 보이지만 사실은 매우 다른 두 개념을 살펴보자.
 
-### `===` (Strict Equality Operator)
+## `===` (Strict Equality Operator)
 
 엄격한 동등성, 즉 타입과 값이 모두 같은지 비교할 때 사용한다.
 <br>`==` 연산자보다 간단한 논리를 거친 결과를 반환하므로 보다 먼저 살펴보자.
@@ -38,7 +38,7 @@ false === 0;
 즉, `===`은 타입과 값 중 하나라도 다르면 두 값이 같지 않다고 판단하여 `false`를 반환한다.
 <br>아주 직관적인 비교 연산자라고 할 수 있겠다.
 
-### `==` (Abstract Equality Operator)
+## `==` (Abstract Equality Operator)
 
 느슨한 동등성을 비교할 때 사용한다.
 <br>강제 형변환(type coercion)을 통해 피연산자들을 공통 타입으로 만든 뒤에, 비교 연산을 수행한다.
@@ -57,7 +57,7 @@ false == 0; // true
 <br>자바스크립트가 값을 동등한 타입으로 변환한 후에 값을 비교하기 때문이다.
 <br>문자열 `'77'`은 숫자 `77`로, 숫자 `0`은 `falsy`값 `false`로 변환된 것이다.
 
-### `Falsy` 값
+## `Falsy` 값
 
 `false == 0`이 성립하는 이유는 자바스크립트에서 `0`이란 값이 `falsy` 값이기 때문이다.
 <br>`0` 이외에 `false`, `""`, `null`, `undefined`, `NaN` 값이 자바스크립트에서 `falsy` 값에 해당한다.
@@ -87,5 +87,3 @@ NaN == NaN; // false
 [참고]
 
 - [JavaScript — Double Equals vs. Triple Equals](https://codeburst.io/javascript-double-equals-vs-triple-equals-61d4ce5a121a)
-
-<br/>
