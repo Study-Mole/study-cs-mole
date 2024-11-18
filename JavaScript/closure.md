@@ -1,5 +1,4 @@
-## 클로저 (Closure)
-- [클로저의 활용](#클로저의-활용)
+# 클로저 (Closure)
 
 > A Closure is the combination of a function and the lexical environment within which that function was declared.<br/> _**클로저는 함수와 그 함수가 선언되었을 때의 렉시컬 환경과의 조합이다.**_
 
@@ -133,5 +132,3 @@ this에 바인딩된 프로퍼티라면 생성한 인스턴스를 통해 외부�
 [참고]
 
 - [Closure | PoiemaWeb](https://poiemaweb.com/js-closure)
-
-<br>

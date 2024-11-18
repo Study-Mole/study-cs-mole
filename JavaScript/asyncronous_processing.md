@@ -1,4 +1,4 @@
-## 자바스크립트가 비동기를 처리하는 방법
+# 자바스크립트가 비동기를 처리하는 방법
 
 JavaScript는 한번에 하나의 작업만 수행이 가능한 single thread 기반 언어이다.<br/>
 하나의 작업이 수행 중이면, thread는 block 된다는 뜻이다.
@@ -7,7 +7,7 @@ JavaScript는 한번에 하나의 작업만 수행이 가능한 single thread �
 
 다행히 JavaScript 엔진은 긴 시간이 소요되는 작업을을 main thread에서 수행하지 않는다. 이러한 작업들은 백그라운드라는 공간에 옮겨져 실행된다. 이렇게 백그라운드에서 실행되는 작업들을 '비동기 작업'이라 부른다.
 
-### callback 함수
+## callback 함수
 
 main thread에서 비동기 함수를 만나면 백그라운드로 위임한다. <br/>
 백그라운드에서 작업이 완료되면, main thread는 수행 결과를 알 수 있어야 한다. (위임한 친구에게 다시 알려줘야 하니까..)
@@ -16,13 +16,13 @@ main thread에서 비동기 함수를 만나면 백그라운드로 위임한다.
 
 정리하자면, callback 함수는 **"비동기 작업이 완료되었을 때 main thread에서 실행할 함수"** 이다.
 
-### Event Loop
+## Event Loop
 
 callback 함수는 백그라운드로 보내졌다가 다시 main thread 안으로 들어온 뒤 실행된다. <br/> 그러나, main thread와 백그라운드는 별도의 프로세스이기 때문에 callback 함수가 돌아와야 하는 시점에 main thread에서는 다른 작업이 수행되고 있을 수 있다.
 
 **callback 함수가 돌아오는 시점을 정해주는 체계가 필요하고, 이 역할을 Event Loop가 담당한다.**
 
-### Event Loop의 동작 원리
+## Event Loop의 동작 원리
 
 main thread에서 실행되는 모든 함수들은 call stack이라는 공간에 LIFO 형태로 쌓이게 된다.<br/>
 함수가 호출되면 push되고, 함수 실행이 종료되면 pop이 되는 단순한 구조이다.<br/>
