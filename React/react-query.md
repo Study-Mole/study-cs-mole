@@ -1,7 +1,7 @@
-> ### React Query의 구조 가 아닌 기능 및 사용법을 보고싶으면 기능 및 사용법 탭부터 읽으시면 됩니다.
+> ### React Query의 구조가 아닌 기능 및 사용법을 보고싶다면 기능 및 사용법 목차부터 읽으시면 됩니다.
 
-- [ReactQuery](#ReactQuery)
-- [기능 및 사용법](#React-Query의-주요-특징-및-사용법)
+- [React Query](#react-query)
+- [기능 및 사용법](#react-query의-주요-특징-및-사용법)
 
 ## React Query
 
@@ -14,8 +14,6 @@
 3. **자동 데이터 갱신**: 화면 포커스 전환, 네트워크 상태 변화 등 다양한 이벤트에 따라 데이터를 최신 상태로 자동 업데이트하여 사용자에게 최신 정보를 제공한다.
 
 이를 통해 복잡한 서버 데이터 요청과 관리 로직을 간결하게 하고, 성능과 사용자 경험을 동시에 향상시킬 수 있다.
-
----
 
 ### React Query 라이브러리의 내부구조
 
@@ -30,18 +28,16 @@ query-core/src
 ├── query.ts
 ├── queryCache.ts
 ├── queryClient.ts
-└── queryObserver.ts`**
+└── queryObserver.ts
 
 react-query/src
 ├── useBaseQuery.ts
-└── useQuery.ts`**
+└── useQuery.ts
 ```
 
 추상적으로 표현한 구조의 모습은 다음과 같다.
 
 ![alt text](.//Images/react-query-1.png)
-
----
 
 ### QueryClient
 
@@ -63,7 +59,7 @@ export class QueryClient {
 
 `QueryCache`는 실제로 데이터를 저장하고 관리하는 저장소이다.
 
-`QueryClient`는 `queryCache`를 가지며 이 캐시 인스턴스와 상호작용 할수있는 몇가지 메소드를 제공한다.
+`QueryClient`는 `queryCache`를 가지며 이 캐시 인스턴스와 상호작용할 수 있는 몇 가지 메서드를 제공한다.
 
 ### **QueryCache**
 
@@ -73,7 +69,7 @@ export class QueryCache extends Subscribable<> {
   private queriesMap: QueryHashMap
 
   constructor(config?: QueryCacheConfig) {
-    this.queries = [] // Query목록을 저장한다.
+    this.queries = [] // Query 목록을 저장한다.
     this.queriesMap = {} //각 Query를 찾기 쉽게 한다.
   }
 
@@ -139,10 +135,10 @@ export class QueryCache extends Subscribable<> {
 
 정리하자면
 
-이 함수의 핵심은 **기존에 같은 요청이 있다면 재사용하고, 없으면 새로 만든다**
+이 함수의 핵심은 **기존에 같은 요청이 있다면 재사용하고, 없으면 새로 만든다.**
 
-1. `queryKey`로 요청의 고유 ID를 정한다
-2. `queryHash`로 요청을 구별한다
+1. `queryKey`로 요청의 고유 ID를 정한다.
+2. `queryHash`로 요청을 구별한다.
 3. `queryHash`에 맞는 `Query`가 이미 있다면 그걸 반환하고, 없다면 새 `Query`를 만들어 `add`로 추가한다.
 
 ### **Query**
@@ -150,8 +146,8 @@ export class QueryCache extends Subscribable<> {
 데이터를 서버에서 가져오는 각각의 요청을 관리한다.
 
 ```jsx
-**export class Query extends Removable {
-  queryKey // Query의 고유한키
+export class Query extends Removable {
+  queryKey // Query의 고유한 키
   queryHash // 데이터를 찾기 쉽게 해시로 만든 고유 식별자
   options!: QueryOptions<TQueryFnData, TError, TData, TQueryKey>
   state: QueryState<TData, TError>
@@ -162,14 +158,24 @@ export class QueryCache extends Subscribable<> {
   constructor(config: QueryConfig<TQueryFnData, TError, TData, TQueryKey>) {
     super()
 
-    this.observers = []    this.cache = config.cache    this.queryKey = config.queryKey    this.queryHash = config.queryHash    this.state = this.initialState  }
+    this.observers = []
+    this.cache = config.cache
+    this.queryKey = config.queryKey
+    this.queryHash = config.queryHash
+    this.state = this.initialState
+  }
 
-  dispatch() {} // Query의 상태가 변할때마다 변화를 전달하는 역할, 데이터가 업데이트되면 상태를 업데이트하고 모든 obserbers에게 알려줘서 화면에 변화를 반영한다.
+  dispatch() {
+    // Query의 상태가 변할 때마다 변화를 전달하는 역할
+    // 데이터가 업데이트되면 상태를 업데이트하고
+    // 모든 observers에게 알려줘서 화면에 변화를 반영한다.
+  }
+
   addObserver() {}
   removeObserver() {}
   fetch() {}
   // ...
-}**
+}
 ```
 
 `Query`는 `QueryCache`가 가진 `queries`, `queriesMap`에 저장되는 인스턴스이며 다음과 같은 정보를 가지고 있다.
@@ -205,9 +211,7 @@ export class Query extends Removable {
 
     notifyManager.batch(() => {
       this.observers.forEach((observer) => {
-
-
- observer.onQueryUpdate(action)
+        observer.onQueryUpdate(action)
       })
       this.cache.notify({ query: this, type: 'updated', action })
     })
@@ -221,7 +225,7 @@ export class Query extends Removable {
 
 ### `dispatch` 메서드
 
-> `dispatch`는 `Query`에서 데이터를 가져오거나, 성공하거나, 실패했을 때 `QueryState`를 >업데이트하는 역할을 한다. 각 `action.type`에 따라 `fetch`, `error`, `success` 상태가 >`QueryState`에 저장된다.
+> `dispatch`는 `Query`에서 데이터를 가져오거나, 성공하거나, 실패했을 때 `QueryState`를 업데이트하는 역할을 한다. 각 `action.type`에 따라 `fetch`, `error`, `success` 상태가 `QueryState`에 저장된다.
 >
 > 1.  `fetch` 상태: 데이터가 로드 중일 때 상태를 설정.
 > 2.  `error` 상태: 데이터를 가져오는 데 실패한 경우 상태를 업데이트.
@@ -231,7 +235,7 @@ export class Query extends Removable {
 
 ### QueryObserver
 
-```
+```jsx
 export class QueryObserver extends Subscribable {
 
   constructor() {}
@@ -318,8 +322,6 @@ export class QueryObserver extends Subscribable {
 2. `Query`와 연결된 `QueryObserver`에게 자신의 상태가 변화했음을 알린다.
 3. `QueryObserver`는 자신과 연결된 `Listener`에게 관찰하고 있는 `Query`의 상태에 변화가 발생했는지를 판단하고 필요한 경우 `Listener`에게 알린다.
 4. `Listener`는 업데이트된 `Query`의 상태를 참조하여 자신을 새로 갱신한다.
-
----
 
 ### **useQuery 훅의 실행 흐름과 React 컴포넌트의 View 업데이트**
 
@@ -424,7 +426,7 @@ export class Subscribable<TListener extends Function = Listener> {
 }
 ```
 
-이 리액트 컴포넌트의 리렌더링을 지시하는 함수 `onStoreChange`는 `observer.subscribe(onStoreChange)` 문장을 따라 이동하는데 `subscribe` 메소드는 `QueryObserver`클래스의 부모 클래스인 `Subscribable`에서 구현하고 있다
+이 리액트 컴포넌트의 리렌더링을 지시하는 함수 `onStoreChange`는 `observer.subscribe(onStoreChange)` 문장을 따라 이동하는데 `subscribe` 메소드는 `QueryObserver`클래스의 부모 클래스인 `Subscribable`에서 구현하고 있다.
 
 `Set` 자료형인 `listeners` 필드에 함수가 추가되는 것을 확인할 수 있다.
 
@@ -477,14 +479,13 @@ React Query는 적절한 시점에 데이터를 갱신하여 항상 최신 정�
 2. 새로운 컴포넌트가 마운트될 때 (`refetchOnMount`)
 3. 네트워크가 재연결될 때 (`refetchOnReconnect`)
 
-이를 위해 React Query는 몇 가지 기본 옵션을 제공한다:
+이를 위해 React Query는 몇 가지 기본 옵션을 제공한다.
 
 - `refetchOnWindowFocus` (기본값: true)
 - `refetchOnMount` (기본값: true)
 - `refetchOnReconnect` (기본값: true)
 - `staleTime` (기본값: 0)
 - `cacheTime` (기본값: 5분)
--
 
 이 옵션들을 통해 필요한 경우에만 데이터가 갱신되도록 설정할 수 있다.
 
@@ -500,8 +501,6 @@ React Query는 React의 Context API 기반으로 동작하며, 전체 데이터�
 `QueryClient`는 Query의 key를 기준으로 데이터를 저장하여, 데이터를 관리하는 Context Store와 같은 역할을 한다. 이를 통해 필요한 경우 `QueryClient`를 단순한 데이터 저장소처럼 활용할 수 있다.
 
 React Query의 이러한 특성들은 항상 최신의 데이터를 제공하여 사용자 경험을 개선하고 성능을 최적화하는 데 기여한다.
-
----
 
 ## 대표적인 기능 및 사용법
 
@@ -557,21 +556,22 @@ function Example() {
     </div>
   )
 }
+```
 useQuery 함수가 반환하는 객체를 보면 isPending 을 통해 로딩 여부를, error 를 통해 에러 발생 여부를, data를 통해 성공 시 데이터를 반환할 수 있다.
 
 isPending과 error를 이용하여 각 상황 별 분기를 쉽게 진행할 수 있다.
-```
 
 ### useQuery 동기적으로 실행
 
 - useQuery에서 `enabled` 옵션을 사용하면 비동기 함수인 useQuery를 동기적으로 사용 가능하다.
 - useQuery의 세 번째 인자로 다양한 옵션 값들이 들어가는데, 여기서 `enabled`에 값을 대입하면 해당 값이 true일 때 useQuery를 동기적으로 실행한다!
 
-```
+```jsx
 const { data: todoList, error, isFetching } = useQuery({
 	queryKey: ["todos"],
   	queryFn: fetchTodoList,
 });
+
 const { data: nextTodo, error, isFetching } = useQuery({
   queryKey: ["nextTodos"],
   queryFn: fetchNextTodoList,
@@ -594,11 +594,13 @@ const results = useQueries({
     staleTime: Infinity,
   })),
 });
+```
+두 query에 대한 반환값이 배열로 묶여 반환된다.
 
-// 두 query에 대한 반환값이 배열로 묶여 반환된다
+만일 반환된 배열에 대해 통합된 값을 불러오고 싶다면, 아래와 같이 combine 설정을 통해 데이터를 한 번에 반환할 수 있다.
+<br>이외에도 배열을 다루는 메서드들을 이용해 반환값에 대한 전처리를 수행할 수 있다.
 
-// 만일 반환된 배열에 대해 통합된 값을 불러오고 싶다면, 아래와 같이 combine 설정을 통해 데이터를 한 번에 반환할 수 있다. 이외에도 배열을 다루는 메서드들을 이용해 반환값에 대한 전처리를 수행할 수 있다
-
+```jsx
 const ids = [1, 2, 3];
 const combinedQueries = useQueries({
   queries: ids.map((id) => ({
@@ -657,10 +659,7 @@ function App() {
 - 위의 코드에서 볼 수 있듯이 반환값은 useQuery와 동일하지만, 처음 사용 시에 post 비동기 함수를 넣어주었다. 이때 useMutation의 첫 번째 파라미터에 비동기 함수가 들어가고, 두 번째 인자로 상황 별 분기 설정이 들어간다는 점이 차이이다.
 - 실제 사용 시에는 `mutation.mutate` 메서드를 사용하고, 첫 번째 인자로 API 호출 시에 전달해주어야하는 데이터를 넣어주면 된다
 
----
+[참고]
 
-### 참고문서
-
-https://fe-developers.kakaoent.com/2023/230720-react-query/
-
-[https://velog.io/@kandy1002/React-Query-푹-찍어먹기](https://velog.io/@kandy1002/React-Query-%ED%91%B9-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
+- [React Query의 구조와 useQuery 실행 흐름 살펴보기](https://fe-developers.kakaoent.com/2023/230720-react-query/)
+- [[React-Query] React-Query 개념잡기](https://velog.io/@kandy1002/React-Query-%ED%91%B9-%EC%B0%8D%EC%96%B4%EB%A8%B9%EA%B8%B0)
