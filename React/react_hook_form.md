@@ -1,9 +1,3 @@
-# React > Library
-
-- [React Hook Form](#React-Hook-Form)
-
----
-
 ## React Hook Form
 
 웹 프론트엔드를 개발할 때 데이터를 다루는 방법은 여러 가지가 있다.
@@ -68,7 +62,7 @@ const [email, setEmail] = useState("");
 
 ### 제어 컴포넌트 vs 비제어 컴포넌트
 
-![alt text](image.png)
+![alt text](../Images/react-hook-form.png)
 
 ### React Hook Form을 쓰는 이유?
 
