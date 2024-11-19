@@ -10,6 +10,8 @@
 - [배열 처리 함수](#배열-처리-함수)
 - [이벤트 버블링](#이벤트-버블링)
 - [자바스크립트가 비동기를 처리하는 방법](#자바스크립트가-비동기를-처리하는-방법)
+- [touch vs click](#touch-vs-click)
+- [mutable vs immutable](#mutable-vs-immutable)
 
 ## 호이스팅
 
@@ -50,3 +52,11 @@ HTML의 계층적 구조로 인해, 특정 요소에 발생한 이벤트가 전�
 ## 자바스크립트가 비동기를 처리하는 방법
 
 Single Thread 기반의 JavaScript는 비동기 작업을 통해 자원 낭비와 사용성 저하를 방지합니다. main thread에서 실행되는 모든 함수는 call stack에 쌓이며, 이곳에 비동기 함수가 들어오면 즉시 백그라운드로 전달됩니다. 우리는 비동기 함수를 호출할 때, 비동기 작업이 완료되는 시점에 main thread에서 실행할 callback 함수를 함께 전달합니다. 백그라운드에서 비동기 작업이 완료되면, 이 callback 함수가 Event Queue에 쌓이게 되고 call stack이 비는 경우 Event Loop가 Event Queue의 callback 함수를 call stack으로 옮기는 역할을 수행합니다.
+
+## touch vs click
+
+touch와 click 이벤트 모두, 화면 상의 요소를 누르고, 이동한 뒤, 떼는 동작의 시퀀스를 갖지만 차이점을 고려하지 않으면 기기에 따라 의도하지 않은 동작이 이루어질 수 있습니다. 기기에 맞는 뷰포트 설정, 딜레이를 제거하는 css 설정, 마우스 이벤트 제거, 모바일 기기를 인식하여 원치 않는 이벤트를 제거하는 등의 다양한 방법으로 충돌을 해결할 수 있습니다.
+
+## mutable vs immutable
+
+immutable은 메모리 힙의 값이 변하지 않는 특성을 의미합니다. React는 얕은 비교를 통해 상태를 업데이트하므로, 원시타입이 아닌 참조타입의 setState시에는 새로운 객체나 배열을 생성하여 상태를 업데이트해야 합니다. 자바스크립트의 structuredClone을 사용하면 깊은 복사를 통해 불변성을 유지할 수 있습니다.
