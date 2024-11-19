@@ -14,7 +14,7 @@ JavaScript에서의 불변성은 **객체가 생성된 이후 변경할 수 없�
 
  ***"원시 타입은 Immutable 하고 참조 타입은 mutable 하다."***
  
- ![https://zion830.tistory.com/20](../Images/primitive_vs_reference.png)
+ ![mutable(reference) vs immutable(primitive)](../Images/primitive_vs_reference.png)
  
  원시 타입의 경우 콜스택에 바로 담기게 되고, 참조 타입은 메모리 힙 영역에 실제 값이 담기고 콜스택에는 메모리 힙의 주소값이 담기게 된다.
 
@@ -142,3 +142,6 @@ let clone = structuredClone(obj);
 
 - [[10분 테코톡] 라잇의 불변성](https://www.youtube.com/watch?v=LRlooA5sYhU)
 - [[JavaScript] 객체의 불변성을 지키는 방법](https://jihyundev.tistory.com/20)
+
+[이미지 출처]
+- [JavaScript의 객체 타입](https://zion830.tistory.com/20)
