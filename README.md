@@ -1,14 +1,14 @@
-## About
+## ❓ About
 
-두더지들의 FrontEnd CS 스터디 기록
+두더지들의 Front-end CS 스터디 기록
 
-## Purpose
+## 💡 Purpose
 
 - 프론트엔드 기술 지식 총정리 맹글기
 - 기술 면접 준비
 - 약간의 강제성
 
-## PR Rules & Roles
+## 🧑‍💻 Roles
 
 1. **작성자**는 원하는 CS 주제글을 정리하여 주 1개 이상의 PR을 올립니다.
    - 마크다운 문법이 의도한대로 적용되었는지 preview 기능을 활용하여 검토
@@ -20,7 +20,7 @@
    - 질문이 겹치거나 통합 가능할 경우 편집
    - 기한: 다음주 금요일
 
-## Rules
+## 📋 Rules
 
 - 작성자는 각 주제에 맞는 폴더에 `주제명.md` 파일을 생성합니다.
 - 폴더 추가 등 구조의 변경이 필요할 경우, 회의를 통해 결정합니다.
@@ -29,7 +29,7 @@
 - 이미지 파일명은 내용이 명확히 드러나도록 작성하고, 직접 제작한 파일이 아닌 경우 출처를 반드시 명시해 주세요.
   - `image.png` ❌ → `study_mole.png` ✅
 
-## Architecture
+## 🗂️ Architecture
 
 ```plaintext
 📁 .
@@ -65,12 +65,8 @@
     └── 📄 주제명.md
 ```
 
-## Author
+## 🧚 Authors
 
-- yuna872
-- u0empty
-- shun1423
-
-## Languages
-
-<p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
+- [yuna872](https://github.com/yuna872)
+- [u0empty](https://github.com/u0empty)
+- [shun1423](https://github.com/shun1423)
