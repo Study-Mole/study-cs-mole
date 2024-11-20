@@ -15,6 +15,18 @@
 
 이를 통해 복잡한 서버 데이터 요청과 관리 로직을 간결하게 하고, 성능과 사용자 경험을 동시에 향상시킬 수 있다.
 
+### ReactQuery의 상태관리
+
+React Query는 전통적인 상태관리 라이브러리와는 조금 다른 방식으로 동작하는 비동기 데이터 관리 라이브러리이다.
+서버 상태(server state) 관리를 주된 목적으로 설계되었으며, 이를 통해 클라이언트 애플리케이션에서 서버 데이터의 로딩, 캐싱, 동기화 및 업데이트를 효율적으로 처리할 수 있다.
+
+React Query는 서버 상태(server state)에 중점을 둡니다. 서버 상태는 주로 API를 통해 가져오는 데이터로,
+다음과 같은 특징이 있다.
+
+- 비동기적으로 데이터를 가져와야 함.
+- 여러 컴포넌트에서 재사용될 가능성이 높음.
+- 데이터가 시간이 지나면서 변할 수 있음(캐싱 및 동기화 필요).
+
 ### React Query 라이브러리의 내부구조
 
 핵심 기능을 처리하는 **`@tanstack/query-core`** 패키지와 이것을 리액트 프로젝트에서 사용할 수 있도록 돕는 **`@tanstack/react-query`** 패키지가 존재한다.
@@ -516,47 +528,47 @@ React-Query에서 data fetching을 위해 제공하는 대표적인 기능들로
 ### Example
 
 ```jsx
-
 import {
   QueryClient,
   QueryClientProvider,
   useQuery,
-} from '@tanstack/react-query'
+} from "@tanstack/react-query";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Example />
     </QueryClientProvider>
-  )
+  );
 }
 
 function Example() {
   const { isPending, error, data } = useQuery({
-    queryKey: ['repoData'],
+    queryKey: ["repoData"],
     queryFn: () =>
-      fetch('https://api.github.com/repos/tannerlinsley/react-query').then(
-        (res) => res.json(),
+      fetch("https://api.github.com/repos/tannerlinsley/react-query").then(
+        (res) => res.json()
       ),
-  })
+  });
 
-  if (isPending) return 'Loading...'
+  if (isPending) return "Loading...";
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) return "An error has occurred: " + error.message;
 
   return (
     <div>
       <h1>{data.name}</h1>
       <p>{data.description}</p>
-      <strong>👀 {data.subscribers_count}</strong>{' '}
-      <strong>✨ {data.stargazers_count}</strong>{' '}
+      <strong>👀 {data.subscribers_count}</strong>{" "}
+      <strong>✨ {data.stargazers_count}</strong>{" "}
       <strong>🍴 {data.forks_count}</strong>
     </div>
-  )
+  );
 }
 ```
+
 useQuery 함수가 반환하는 객체를 보면 isPending 을 통해 로딩 여부를, error 를 통해 에러 발생 여부를, data를 통해 성공 시 데이터를 반환할 수 있다.
 
 isPending과 error를 이용하여 각 상황 별 분기를 쉽게 진행할 수 있다.
@@ -567,15 +579,23 @@ isPending과 error를 이용하여 각 상황 별 분기를 쉽게 진행할 수
 - useQuery의 세 번째 인자로 다양한 옵션 값들이 들어가는데, 여기서 `enabled`에 값을 대입하면 해당 값이 true일 때 useQuery를 동기적으로 실행한다!
 
 ```jsx
-const { data: todoList, error, isFetching } = useQuery({
-	queryKey: ["todos"],
-  	queryFn: fetchTodoList,
+const {
+  data: todoList,
+  error,
+  isFetching,
+} = useQuery({
+  queryKey: ["todos"],
+  queryFn: fetchTodoList,
 });
 
-const { data: nextTodo, error, isFetching } = useQuery({
+const {
+  data: nextTodo,
+  error,
+  isFetching,
+} = useQuery({
   queryKey: ["nextTodos"],
   queryFn: fetchNextTodoList,
-  enabled: !!todoList // true가 되면 fetchNextTodoList를 실행한다
+  enabled: !!todoList, // true가 되면 fetchNextTodoList를 실행한다
 });
 ```
 
@@ -595,6 +615,7 @@ const results = useQueries({
   })),
 });
 ```
+
 두 query에 대한 반환값이 배열로 묶여 반환된다.
 
 만일 반환된 배열에 대해 통합된 값을 불러오고 싶다면, 아래와 같이 combine 설정을 통해 데이터를 한 번에 반환할 수 있다.
