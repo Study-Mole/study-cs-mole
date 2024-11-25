@@ -2,7 +2,9 @@
 
 - [touch vs click](#touch-vs-click)
 - [mutable vs immutable](#mutable-vs-immutable)
+
 - [debouncing vs throttling](#디바운싱과-쓰로틀링)
+
 
 ## touch vs click
 
