@@ -19,26 +19,38 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const members = ['yuna872', 'u0empty', 'shun1423'];
-
             const prActor = process.env.GITHUB_ACTOR;
+
+            // PR 생성자를 제외한 리뷰어 목록 생성
             const availableReviewers = members.filter(
               (member) => member.toUpperCase() !== prActor?.toUpperCase()
             );
 
+            // 랜덤으로 리뷰어 선정
+            const randomReviewer = availableReviewers[
+              Math.floor(Math.random() * availableReviewers.length) // 배열 길이를 기준으로 무작위 선택
+            ];
 
-            const randomReviewer =  availableReviewers[Math.floor(Math.random() * (members.length - 1))]
-            console.log(availableReviewers)
+            // `randomReviewer`를 제외한 목록 생성
             const availableMergeMen = availableReviewers.filter(
               (member) => member.toUpperCase() !== randomReviewer?.toUpperCase()
             );
-            const mergeMan = availableMergeMen[Math.floor(Math.random() * (members.length - 2))]
-            const comment1 = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`
-            const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`
 
-            core.setOutput('comment1', comment1)
-            core.setOutput('comment2', comment2)
-            core.setOutput('reviewer', randomReviewer)
-            core.setOutput('mergeMan', mergeMan)
+            // 랜덤으로 머지 담당자 선정
+            const mergeMan = availableMergeMen[
+              Math.floor(Math.random() * availableMergeMen.length) // 배열 길이를 기준으로 무작위 선택
+            ];
+
+            // 코멘트 메시지 생성
+            const comment1 = `🎉 @${randomReviewer}님 해당 주제를 면접st로 요약해주세요 🙏`;
+            const comment2 = `🎉 @${mergeMan}님 ${randomReviewer}님의 요약을 확인하시고 merge를 부탁드려요! :)`;
+
+            // 결과 출력
+            core.setOutput('comment1', comment1);
+            core.setOutput('comment2', comment2);
+            core.setOutput('reviewer', randomReviewer);
+            core.setOutput('mergeMan', mergeMan);
+
 
       - name: add_pr_comment1
         uses: thollander/actions-comment-pull-request@v1
