@@ -1,8 +1,8 @@
 # JavaScript Question
 
 - [touch vs click](#touch-vs-click)
-- [debouncing vs throttling](#디바운싱과-쓰로틀링)
 - [mutable vs immutable](#mutable-vs-immutable)
+- [debouncing vs throttling](#디바운싱과-쓰로틀링)
 - [Promise](#promise)
 
 ## touch vs click
