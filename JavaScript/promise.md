@@ -100,24 +100,28 @@ promise
 프로미스 체이닝이란, 프로미스 핸들러를 연달아 연결하는 것을 뜻한다. 프로미스 체이닝으로 비동기 작업을 순차적으로 수행할 수 있다.
 
 예를 들어 아래의 코드에서는 molePromise라는 프로미스를 생성하고 `.then()`메서드를 통해 핸들러를 연결하는 과정을 보여준다. 각 핸들러는 이전 프로미스의 값에 두더지들의 이름을 붙인 값을 반환한다.
+
 ```javascript
 const molePromise = new Promise((resolve, _) => {
-    resolve("hi mole! ");
-  });
+  resolve("hi mole! ");
+});
 
 molePromise
-    .then((str) => str + "yubin")
-    .then((str) => str + "yuna")
-    .then((str) => str + "shun")
-    .then((str) => console.log(str));
+  .then((str) => str + "yubin")
+  .then((str) => str + "yuna")
+  .then((str) => str + "shun")
+  .then((str) => console.log(str));
 ```
 
 ![promise chaining](../Images/promise_chaining.png)
+
 체이닝이 가능한 이유는 then이 리턴하는 값이 프로미스 객체로 감싸져 반환되기 때문이다. <br/> 그 다음 핸들러에서 반환된 프로미스 객체를 받아 처리한다.
 <br/>
 
 ### Promise의 이점
+
 Promise를 사용하면 다음과 같은 이점이 있다.
+
 - 핸들러로 비동기 처리 시점을 명확하게 표현, 연속된 비동기 처리 작업을 작성하기 쉬움
 - 3가지의 상태값을 통해 비동기 작업 상태를 쉽게 확인
 - 코드의 유지 보수성 증가
