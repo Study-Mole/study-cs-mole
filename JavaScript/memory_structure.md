@@ -2,33 +2,33 @@
 
 ### 일반적인 프로세스 메모리 모델의 구조
 
-![memory structure](././images/memory_structure_1.png)
+![memory structure](../images/memory_structure_1.png)
 
 **Text 영역**
 
 - 프로그램 코드와 상수가 정의된 영역
-- 읽기 전용으로 실행 시 수정할 수 없다
+- 읽기 전용으로 실행 시 수정할 수 없다.
 
 **Data 영역**
 
 - 전역 변수와 정적 변수가 저장된 영역
-- 초기화된 데이터와 초기화되지 않은 데이터를 포함한다
+- 초기화된 데이터와 초기화되지 않은 데이터를 포함한다.
 
 **Heap 영역**
 
 - 동적 메모리 할당에 의해 사용되는 영역
-- 런타임 시 크기가 변할 수 있으며 `malloc`, `new` 등의 함수로 관리된ㅏ
+- 런타임 시 크기가 변할 수 있으며 `malloc`, `new` 등의 함수로 관리된다.
 
 **Stack 영역**
 
 - 함수 호출 시 생성되는 지역 변수, 함수 매개변수, 반환 주소 등이 저장되는 영역
-- LIFO(Last In, First Out) 방식으로 동작하며, 함수 종료 시 메모리가 해제된다
+- LIFO(Last In, First Out) 방식으로 동작하며, 함수 종료 시 메모리가 해제된다.
 
 **Node.js에서는 V8메모리 구조를 사용한다.**
 
 ### V8 엔진 메모리 구조
 
-![memory structure V8](././images/memory_structure_2.png)
+![memory structure V8](../images/memory_structure_2.png)
 
 ### 1. **힙 메모리 구조**
 
@@ -77,7 +77,7 @@
   - **내부 단편화**: 프로세스가 필요한 양보다 큰 메모리가 할당될 때 발생한다.
   - **외부 단편화**: 작은 빈 공간이 여러 개 존재해도, 큰 메모리를 할당할 수 없을 때 발생한다.
 
-![memory fragmentation](././images/memory_structure_3.png)
+![memory fragmentation](../images/memory_structure_3.png)
 
 ### **해결 방법**
 
