@@ -1,6 +1,20 @@
+# JavaScript Question
+
+- [touch vs click](#touch-vs-click)
+- [mutable vs immutable](#mutable-vs-immutable)
 
 ## touch vs click
 
 > **touch 이벤트와 click 이벤트의 차이점에 대해 설명해주세요.**
 
 touch 이벤트는 모바일 터치스크린에서 발생하고, 멀티터치를 지원하여 여러 포인터로 동시에 상호작용할 수 있습니다. 반면, click 이벤트는 주로 마우스 입력을 위한 것이며 단일 포인터만 사용합니다. 또한, 모바일에서 터치 후 click 이벤트가 약 300ms 지연되어 발생하는 특징이 있어, UI 반응 속도에 영향을 줄 수 있습니다.
+
+## mutable vs immutable
+
+> **불변성이 무엇이며, 불변성을 유지해야 하는 이유는 무엇인지 설명해주세요.**
+
+불변성(immutability)은 데이터가 생성된 이후 변경되지 않는 성질을 말합니다. 특히 JavaScript에서는 원시 타입(Primitive)은 불변성을 가지지만, 참조 타입(Reference)은 기본적으로 가변성을 가집니다.
+
+불변성을 유지해야 하는 이유는 다음과 같습니다
+
+React는 상태 변경을 객체의 참조로 감지합니다. 참조 타입은 불변성을 유지하지 않으면 변경을 감지하지 못해 UI 업데이트가 실패할 수 있습니다. 또한 불변성을 유지하면 데이터 원본이 보호되어 부작용을 방지하고 디버깅이 쉬워집니다.
