@@ -13,11 +13,12 @@ JavaScript에서의 불변성은 **객체가 생성된 이후 변경할 수 없�
 
  <br/>
 
- ***"원시 타입은 Immutable 하고 참조 타입은 mutable 하다."***
- 
- ![mutable(reference) vs immutable(primitive)](../Images/primitive_vs_reference.png)
- 
- 원시 타입의 경우 콜스택에 바로 담기게 되고, 참조 타입은 메모리 힙 영역에 실제 값이 담기고 콜스택에는 메모리 힙의 주소값이 담기게 된다.
+**_"원시 타입은 Immutable 하고 참조 타입은 mutable 하다."_**
+
+![https://zion830.tistory.com/20](../Images/primitive_vs_reference.png)
+
+원시 타입의 경우 콜스택에 바로 담기게 되고, 참조 타입은 메모리 힙 영역에 실제 값이 담기고 콜스택에는 메모리 힙의 주소값이 담기게 된다.
+
 
 원시 타입을 재할당 하면 콜스택에는 새로운 값이 담긴다.
 하지만 참조 타입의 값을 수정하면 콜스택에 담긴 주소는 바뀌지 않고 메모리 힙에 저장된 값이 변한다.
@@ -89,22 +90,26 @@ function App() {
 새로운 배열이나 객체는 Spread 연산자를 활용하여 간편하게 생성할 수 있다.
 
 ```js
-let newArr = [...arr, 3]
-let newObj = {...obj}
+
+let newArr = [...arr, 3];
+let newObj = { ...obj };
+
 ```
 
 ### 3. Object.assign
 
 ```js
-Object.assign(target, ...sources)
+
+Object.assign(target, ...sources);
+
 ```
 
 타깃 객체로 소스 객체의 프로퍼티를 복사하게 된다. Object.assign을 사용해서 객체를 손쉽게 복사할 수 있다.
 
 ```js
 let mole = {
-    name : 'yubin',
-    age : 4
+  name: "yubin",
+  age: 4,
 };
 
 let clone = Object.assign({}, mole);
@@ -117,10 +122,11 @@ let clone = Object.assign({}, mole);
 
 ```js
 let mole = {
-    name : 'yubin',
-    address : {
-        city : 'seoul'
-    }
+
+  name: "yubin",
+  address: {
+    city: "seoul",
+  },
 };
 
 let clone = JSON.parse(JSON.stringfy(mole));
@@ -163,5 +169,8 @@ let clone = structuredClone(obj);
 - [[10분 테코톡] 라잇의 불변성](https://www.youtube.com/watch?v=LRlooA5sYhU)
 - [[JavaScript] 객체의 불변성을 지키는 방법](https://jihyundev.tistory.com/20)
 
+
 [이미지 출처]
+
 - [JavaScript의 객체 타입](https://zion830.tistory.com/20)
+
