@@ -3,6 +3,7 @@
 - [touch vs click](#touch-vs-click)
 - [mutable vs immutable](#mutable-vs-immutable)
 - [debouncing vs throttling](#디바운싱과-쓰로틀링)
+- [Promise](#promise)
 
 ## touch vs click
 
@@ -32,3 +33,14 @@ React는 상태 변경을 객체의 참조로 감지합니다. 참조 타입은 
 디바운싱은 주로 연이어 발생하는 이벤트를 단일 이벤트로 만들고 싶을 때 사용합니다. 빈번하게 발생하는 타이핑 이벤트의 결과 표시나, 블로그 글쓰기 에디터의 자동 저장 기능과 같은 상황에서 유용합니다.
 
 쓰로틀링은 마지막 함수를 기다리지 않으며, 첫 번째 클릭에 의한 이벤트만을 실행하고 주어진 시간 동안 나머지는 무시하기 때문에 짧은 주기로 실행되는 이벤트를 조절하고 싶은 곳에 사용하는 것이 좋습니다. 예를 들면 하나의 버튼을 연속해서 누르는 경우에 타임아웃을 더 길게 설정하여 쓰로틀링을 적용하는 방법이 있습니다.
+
+## Promise
+
+> **Promise의 상태값에 대해 설명하고, 각 상태에서 어떤 작업이 이루어지는지 설명해주세요.**
+
+Promise의 상태값은 크게 Pending , Fulfilled, Rejected 상태가 있습니다. Pending상태에서는 Promise 객체 생성 및 비동기 작업수행이 일어나며 Fulfilled 상태에서는 resolve()를 통해 결과값 전달 및 then() 핸들러 실행이 일어납니다. Rejected 상태에서는 reject()를 통해 에러 전달 및 catch()핸들러 실행이 일어납니다.
+
+> **Promise 체이닝이 가능한 이유와, async/await과 Promise의 관계에 대해 설명해주세요.**
+> Promise 체이닝이 가능한 이유는 then() 메서드가 새로운 Promise 객체를 반환하기 때문입니다. 이를 통해 비동기 작업들을 순차적으로 처리하며 각 단계의 결과값을 다음 단계로 전달하게 됩니다.
+
+async/await은 Promise를 기반으로 동작하는 문법적 개선안입니다. 모든 async 함수는 Promise를 반환하며, await 키워드는 Promise가 처리될 때까지 실행을 일시 중지시킵니다. 이를 통해 Promise 체이닝보다 더 직관적이고 동기적인 코드 스타일로 비동기 작업을 처리할 수 있습니다.
