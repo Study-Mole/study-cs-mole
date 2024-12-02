@@ -4,6 +4,7 @@
 - [mutable vs immutable](#mutable-vs-immutable)
 - [debouncing vs throttling](#디바운싱과-쓰로틀링)
 - [메모리 구조](#메모리-구조)
+- [Promise](#promise)
 
 ## touch vs click
 
@@ -48,3 +49,13 @@ React는 상태 변경을 객체의 참조로 감지합니다. 참조 타입은 
 - 메이저 GC는 old 영역의 메모리가 부족할 때 발생하며 **1) 사용중인 객체를 식별 2) 메인스레드 일시 정지 3) 참조되지 않는 객체 정리 및 메모리 블록 압축**의 단계로 진행됩니다.
 
 GC는 메모리를 자동으로 관리해주지만, 메모리가 정확히 언제 해제될지는 알 수 없어서 세부적으로 제어하기 어렵습니다. <br/>또한, GC가 실행되는 동안 애플리케이션의 다른 작업이 일시적으로 중단될 수 있어 성능 상의 오버헤드가 발생할 수 있습니다.
+## Promise
+
+> **Promise의 상태값에 대해 설명하고, 각 상태에서 어떤 작업이 이루어지는지 설명해주세요.**
+
+Promise의 상태값은 크게 Pending , Fulfilled, Rejected 상태가 있습니다. Pending상태에서는 Promise 객체 생성 및 비동기 작업수행이 일어나며 Fulfilled 상태에서는 resolve()를 통해 결과값 전달 및 then() 핸들러 실행이 일어납니다. Rejected 상태에서는 reject()를 통해 에러 전달 및 catch()핸들러 실행이 일어납니다.
+
+> **Promise 체이닝이 가능한 이유와, async/await과 Promise의 관계에 대해 설명해주세요.**
+> Promise 체이닝이 가능한 이유는 then() 메서드가 새로운 Promise 객체를 반환하기 때문입니다. 이를 통해 비동기 작업들을 순차적으로 처리하며 각 단계의 결과값을 다음 단계로 전달하게 됩니다.
+
+async/await은 Promise를 기반으로 동작하는 문법적 개선안입니다. 모든 async 함수는 Promise를 반환하며, await 키워드는 Promise가 처리될 때까지 실행을 일시 중지시킵니다. 이를 통해 Promise 체이닝보다 더 직관적이고 동기적인 코드 스타일로 비동기 작업을 처리할 수 있습니다.
