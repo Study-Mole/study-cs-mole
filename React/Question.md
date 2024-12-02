@@ -2,6 +2,7 @@
 
 - [React Hook Form](#react-hook-form)
 - [React Query](#react-query)
+- [hydration](#hydration)
 
 ## React Hook Form
 
@@ -18,3 +19,9 @@ React의 상태와 실시간으로 연결되지 않는 비제어 컴포넌트를
 > **React Query의 장점에 대해 설명해 주시겠어요?**
 
 서버의 데이터를 불러오고, 캐시하고, 최신 상태로 유지하는 작업을 처리해주기 때문에 중복된 API의 호출을 방지할 수 있고 개발자는 간편하게 데이터를 관리할 수 있기 때문입니다.
+
+## hydration
+
+> **SPA, CSR, SSR의 차이점에 대해 설명해주세요**
+
+> **SSR 렌더링이 SEO에 유리한 이유는 무엇인가요?**
