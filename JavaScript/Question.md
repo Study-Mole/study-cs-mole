@@ -56,6 +56,7 @@ GC는 메모리를 자동으로 관리해주지만, 메모리가 정확히 언�
 Promise의 상태값은 크게 Pending , Fulfilled, Rejected 상태가 있습니다. Pending상태에서는 Promise 객체 생성 및 비동기 작업수행이 일어나며 Fulfilled 상태에서는 resolve()를 통해 결과값 전달 및 then() 핸들러 실행이 일어납니다. Rejected 상태에서는 reject()를 통해 에러 전달 및 catch()핸들러 실행이 일어납니다.
 
 > **Promise 체이닝이 가능한 이유와, async/await과 Promise의 관계에 대해 설명해주세요.**
-> Promise 체이닝이 가능한 이유는 then() 메서드가 새로운 Promise 객체를 반환하기 때문입니다. 이를 통해 비동기 작업들을 순차적으로 처리하며 각 단계의 결과값을 다음 단계로 전달하게 됩니다.
+
+Promise 체이닝이 가능한 이유는 then() 메서드가 새로운 Promise 객체를 반환하기 때문입니다. 이를 통해 비동기 작업들을 순차적으로 처리하며 각 단계의 결과값을 다음 단계로 전달하게 됩니다.
 
 async/await은 Promise를 기반으로 동작하는 문법적 개선안입니다. 모든 async 함수는 Promise를 반환하며, await 키워드는 Promise가 처리될 때까지 실행을 일시 중지시킵니다. 이를 통해 Promise 체이닝보다 더 직관적이고 동기적인 코드 스타일로 비동기 작업을 처리할 수 있습니다.
