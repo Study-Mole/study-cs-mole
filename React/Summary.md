@@ -3,6 +3,7 @@
 - [Life Cycle](#lifecycle)
 - [React Hook Form](#react-hook-form)
 - [React Query](#react-query)
+- [hydration](#hydration)
 
 ## Life cycle
 
@@ -17,3 +18,7 @@ React Hook Form은 비제어 컴포넌트 방식을 활용해 폼 데이터를 �
 ## React Query
 
 React Query는 서버 상태를 효율적으로 관리하는 라이브러리로, 데이터 fetching, 캐싱, 동기화, 에러 핸들링을 자동화하여 비동기 데이터를 편리하게 다룰 수 있습니다.
+
+## hydration
+
+hydration은 React에서 서버 사이드 렌더링된 정적인 HTML을 클라이언트측에서 동적인 페이지로 활성화하는 과정을 말합니다. 다시말해, 빈 HTML 코드를 실행에 필요한 코드들로 채워주는 과정입니다. 서버단에서 이미 렌더링된 페이지를 넘겨주므로 CSR 보다 페이지 로딩 속도가 빠르며 SEO에도 유리합니다.
