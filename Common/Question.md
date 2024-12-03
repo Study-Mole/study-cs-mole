@@ -2,6 +2,7 @@
 
 - [웹 스토리지](#웹-스토리지)
 - [CORS](#cors)
+- [Babel, Webpack, Polyfill](#babel-webpack-polyfill)
 
 ## 웹 스토리지
 
@@ -43,3 +44,12 @@ CORS는 **Cross-Origin Resource Sharing**의 약자로, 교차 출처 리소스 
 <br>서버는 응답 헤더에 Access-Control-Allow-Origin을 추가하여 허용할 출처를 명시합니다. 특정 출처만 허용하거나 \*를 사용하여 모든 출처를 허용할 수도 있습니다.
 <br>브라우저는 요청의 Origin과 서버의 Access-Control-Allow-Origin 값을 비교하고, 일치하지 않으면 요청을 차단합니다.
 <br>최신 브라우저는 XMLHttpRequest와 Fetch API를 통해 CORS를 사용하여 교차 출처 HTTP 요청을 처리합니다.
+
+## Babel, Webpack, Polyfill
+
+> **Babel과 Polyfill이 브라우저 호환성에 미치는 영향을 설명해 주세요.**
+> Babel과 Polyfill은 최신 JavaScript 문법과 기능을 사용하면서도 구형 브라우저와의 호환성을 확보할 수 있게 해줍니다.
+> Babel은 ES6+ 문법을 ES5 문법으로 변환하고, Polyfill은 최신 기능을 오래된 브라우저에서도 사용할 수 있게 해주는 코드입니다. 개발자가 최신 기술을 쓰면서도 모든 사용자를 지원할 수 있게 만듭니다.
+
+> **Webpack의 번들링 작업의 목적은 무엇인가요?**
+> 프로젝트의 모듈화된 파일들을 번들링하여 HTTP 요청 수를 줄이고 로딩 시간을 단축시킵니다. 또한 모듈 간 의존성을 관리하고 번들 크기를 최적화하여 웹 애플리케이션 성능을 향상시키는 것이 Webpack 번들링 작업의 주된 목적입니다.
