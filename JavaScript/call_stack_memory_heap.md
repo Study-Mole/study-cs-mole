@@ -104,6 +104,7 @@ GEC가 제거되면, 힙의 객체를 참조하는 스택의 값이 없기 때�
 [참고]
 
 - [콜스택과 힙](https://58cjdcns99.tistory.com/entry/%EC%BD%9C-%EC%8A%A4%ED%83%9DCall-stack%EA%B3%BC-%ED%9E%99Heap-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%EC%85%98%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8)
-  [이미지 출처]
+
+[이미지 출처]
 
 - [콜스택과 힙](https://58cjdcns99.tistory.com/entry/%EC%BD%9C-%EC%8A%A4%ED%83%9DCall-stack%EA%B3%BC-%ED%9E%99Heap-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%88%84%EC%88%98-%EA%B0%80%EB%B9%84%EC%A7%80-%EC%BB%AC%EB%A0%89%EC%85%98%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8)
