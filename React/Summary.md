@@ -3,6 +3,7 @@
 - [Life Cycle](#lifecycle)
 - [React Hook Form](#react-hook-form)
 - [React Query](#react-query)
+- [React Memoization](#react-memoization)
 
 ## Life cycle
 
