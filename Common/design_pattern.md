@@ -65,8 +65,6 @@ Controller 대신 Presenter가 생긴 구조로, 한때 Android 개발에서 가
   - Model과 View 사이의 중계자 역할
   - 서로의 요청과 응답을 전달해 줌
 
-###
-
 ### MVP의 장점
 
 - **View-Model 간의 의존성 해소**: Presenter가 중간 역할을 하면서 View와 Model이 직접적으로 의존하지 않도록 만들어준다. 이로 인해 Model의 변경이 직접적으로 View에 영향을 주지 않으며, UI와 데이터 로직이 분리된다.
