@@ -1,5 +1,24 @@
 # 프론트엔드 디자인 패턴
 
+### 디자인 패턴(Design Pattern)이란?
+
+디자인 패턴(Design Pattern)은 소프트웨어 설계 과정에서 자주 등장하는 문제 상황에 대한 재사용 가능한 해결책을 정리한 것이다.
+이를 통해 코드 재사용성과 유지보수성을 높이고, 팀원 간의 의사소통을 원활하게 할 수 있다. 디자인 패턴은 크게 다음과 같은 세 가지 유형으로 분류된다.
+
+1. 생성적(Creational) 패턴: 객체 생성 과정을 추상화하고 유연하게 관리하는 패턴
+   예: Singleton, Factory Method, Abstract Factory, Builder, Prototype 등
+
+2. 구조적(Structural) 패턴: 클래스나 객체를 조합하여 더 큰 구조를 형성하고, 유연성과 확장성을 향상시키는 패턴
+   예: Adapter, Bridge, Composite, Decorator, Facade, Proxy 등이 있다.
+
+3. 행위적(Behavioral) 패턴: 객체 간 상호작용과 책임 분배에 초점을 맞추어, 알고리즘과 흐름 제어 방식을 개선하는 패턴
+   예: Strategy, Observer, Command, Mediator, Visitor, Chain of Responsibility 등
+
+프론트엔드 아키텍처 패턴(예: MVC, MVP, MVVM)은 구조적 패턴(Structural Pattern)의 영역에 속한다고 볼 수 있다.
+이들 패턴은 프론트엔드 애플리케이션을 구성하는 핵심 요소인 데이터(Model), UI(View), 로직(Controller/Presenter/ViewModel) 간의 관계를 정의하고, 이들 사이의 의존성을 최소화하여 애플리케이션을 더 이해하기 쉽고 유지보수하기 편리하게 만들어준다.
+
+아래에서는 프론트엔드 개발에서 주로 언급되는 MVC, MVP, MVVM 패턴에 대해 살펴보자.
+
 ### **MVC Architecture**
 
 ![MVC Architecture](./images/MVC_Architecture.png)
