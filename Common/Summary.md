@@ -8,6 +8,7 @@
 - [브라우저 저장소의 차이점 (LocalStorage, SessionStorage, Cookie)](#브라우저-저장소의-차이점-localstorage-sessionstorage-cookie)
 - [CORS](#CORS)
 - [Babel, Webpack, Polyfill](#babel-webpack-polyfill)
+- [프론트엔드 디자인 패턴](#프론트엔드-디자인-패턴)
 
 ## 브라우저 동작 과정
 
@@ -32,3 +33,7 @@ SEO는 웹사이트의 가시성을 높이고 검색 결과의 상위에 노출�
 ## Babel, Webpack, Polyfill
 
 Babel은 최신 JavaScript 문법을 구형 브라우저에서 동작할 수 있도록 변환해주는 트랜스파일러로, 구문 변환, polyfill 추가, 소스 코드 변환을 지원합니다. Babel의 부족한 부분을 채워주는 Polyfill은 구형 브라우저에서 최신 JavaScript 기능을 사용할 수 있도록 구현된 코드 모음입니다. Webpack은 JavaScript 모듈을 하나로 묶어주는 번들러로, 여러 파일을 하나의 파일로 결합하여 브라우저 호환성을 높입니다.
+
+## 프론트엔드 디자인 패턴
+
+MVC, MVP, MVVM은 UI, 비즈니스 로직, 상태 관리의 역할을 다르게 분담하는 디자인 패턴의 아키텍처입니다. MVC는 간단한 구조로 서버 사이드 렌더링에 적합하고, MVP는 View와 Model 간 의존성을 해결한 아키텍처로 테스트 용이성 측면에서 유리합니다. MVVM은 데이터 바인딩을 통해 UI와 로직을 분리하고, 상태 관리와 UI 구현을 효율적으로 처리합니다.
