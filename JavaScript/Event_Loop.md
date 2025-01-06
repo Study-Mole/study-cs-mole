@@ -6,7 +6,7 @@ JavaScript는 브라우저 환경이나 Node.js 환경에서 단일 스레드(si
 
 즉, 동시에 여러 개의 코드를 병렬로 처리하지 않고, 한 줄씩 순차적으로 실행하는 단일 실행 컨텍스트를 갖는다. 그러나 비동기 처리(예: AJAX 호출, setTimeout 등)를 수행할 때는 단순히 동기적으로 모든 것이 처리되는 것처럼 보이지 않는다.
 
-이 비동기 처리를 가능하게 하는 메커니즘 중 핵심이 바로 **Event Loop(이벤트 루프)**이다.
+이 비동기 처리를 가능하게 하는 메커니즘 중 핵심이 바로 **Event Loop(이벤트 루프)** 이다.
 
 **동작 원리 개괄**:
 
@@ -14,11 +14,13 @@ JavaScript는 브라우저 환경이나 Node.js 환경에서 단일 스레드(si
 
    자바스크립트 엔진이 현재 실행 중이거나 실행 대기 중인 함수들의 스택이다. 함수 호출 시 스택에 쌓이고, 반환 시 스택에서 제거된다.
 
-2. Memory Heap(메모리 힙):
+2. **Memory Heap(메모리 힙)**:
+
    컴퓨터가 정보를 저장하는곳이다. 즉 자바스크립트 관점에서 보면 우리가 만드는 객체, 배열 ,함수 등의 데이터가 저장되는 공간이다.
+
 3. **Web APIs (또는 브라우저 APIs)**:
 
-   브라우저 환경에서 제공하는 비동기 API들(ex: DOM 이벤트, Ajax, setTimeout, requestAnimationFrame 등)은 호출 스택에 올랐다가 해당 함수가 완료되면 결과를 **Task Queue(또는 Callback Queue)**에 보낸다.
+   브라우저 환경에서 제공하는 비동기 API들(ex: DOM 이벤트, Ajax, setTimeout, requestAnimationFrame 등)은 호출 스택에 올랐다가 해당 함수가 완료되면 결과를 **Task Queue(또는 Callback Queue)** 에 보낸다.
 
 4. **Task Queue (또는 Callback Queue)**:
 
@@ -30,7 +32,7 @@ JavaScript는 브라우저 환경이나 Node.js 환경에서 단일 스레드(si
 
 ---
 
-![EventLoop](../Images/event_loop.png)
+![EventLoop](../Images/event_loop_2.png)
 
 ### Event Loop 동작 과정
 
