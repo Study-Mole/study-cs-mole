@@ -3,6 +3,7 @@
 - [웹 스토리지](#웹-스토리지)
 - [CORS](#cors)
 - [Babel, Webpack, Polyfill](#babel-webpack-polyfill)
+- [Social Login](#social-login)
 
 ## 웹 스토리지
 
@@ -53,3 +54,7 @@ CORS는 **Cross-Origin Resource Sharing**의 약자로, 교차 출처 리소스 
 
 > **Webpack의 번들링 작업의 목적은 무엇인가요?**
 > 프로젝트의 모듈화된 파일들을 번들링하여 HTTP 요청 수를 줄이고 로딩 시간을 단축시킵니다. 또한 모듈 간 의존성을 관리하고 번들 크기를 최적화하여 웹 애플리케이션 성능을 향상시키는 것이 Webpack 번들링 작업의 주된 목적입니다.
+
+## Social Login
+
+> **소셜 로그인이 무엇이고, 왜 사용하는지 간단히 설명해주세요.** > **OAuth 2.0 인증 과정을 단계별로 설명해주실 수 있나요?** > **Access Token과 Refresh Token의 차이점은 무엇인가요? 각각의 용도에 대해 설명해주세요.**
