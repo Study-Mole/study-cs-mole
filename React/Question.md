@@ -3,6 +3,7 @@
 - [React Hook Form](#react-hook-form)
 - [React Query](#react-query)
 - [hydration](#hydration)
+- [React Memoization](#react-memoization)
 
 ## React Hook Form
 
@@ -32,3 +33,7 @@ SSR (Server-Side Rendering)은 서버에서 HTML을 미리 완성해서 클라�
 > **SSR 렌더링이 SEO에 유리한 이유는 무엇인가요?**
 
 SSR이 SEO에 유리한 이유는 서버에서 미리 HTML을 완성해서 제공하기 때문입니다. 검색 엔진 크롤러는 HTML만 읽을 수 있는데, SSR은 서버가 완성된 HTML을 보내기 때문에 크롤러가 페이지의 내용을 바로 인식할수 있습니다.
+
+## React Memoization
+
+> **React.memo와 useMemo의 차이점은 무엇인가요?**
