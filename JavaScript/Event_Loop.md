@@ -32,7 +32,7 @@ JavaScript는 브라우저 환경이나 Node.js 환경에서 단일 스레드(si
 
 ---
 
-![EventLoop](../Images/event_loop_2.png)
+![EventLoop](../Images/event_loop(2).png)
 
 ### Event Loop 동작 과정
 
