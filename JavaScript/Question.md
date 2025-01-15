@@ -88,4 +88,12 @@ ES6 모듈은 정적 분석 기반으로 동작하여 컴파일 타임에 모듈
 
 > **Event Loop에서 Microtask Queue와 Task Queue의 우선순위 차이를 설명하고, 그로 인해 발생할 수 있는 예시를 들어주세요.**
 
+마이크로 태스크 큐의 작업은 일반 태스크 큐의 작업보다 우선순위가 높습니다. 이로인해 마이크로 태스크 큐에 들어가는 `.then()`보다 일반 태스크 큐에 들어있는 `callback` 함수가 더 나중에 실행됩니다.
+
 > **JavaScript에서 비동기 작업이 완료되기까지의 과정을 간단히 설명해주세요.**
+
+1. 각 함수가 실행되면 callstack이라는 공간에 push 되며 완료되면 pop된다.
+2. callstack이 비동기 함수를 만나면 이를 background로 이관하여 실행한다.
+3. background에서 비동기 함수의 실행이 완료되면 비동기 함수의 인자로 넘겨진 callback 함수는 event queue로 옮겨진다.
+4. event loop는 callstack이 비어있는지 확인하고 있다가 callback 함수를 다시 callstack으로 옮긴다.
+5. 옮겨진 callback 함수가 실행 완료되어 비동기 함수의 성공 또는 실패를 알린다.
