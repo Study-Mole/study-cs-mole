@@ -1,3 +1,5 @@
+# 기본 타입과 타입 시스템
+
 ## 1. 기본 타입(Basic Types)
 
 TypeScript의 기본 타입은 JavaScript가 지원하는 원시(primitive) 타입을 대부분 포함한다. 또한 `strictNullChecks` 옵션 여부에 따라 `null`과 `undefined`의 처리 방식이 달라지므로, 이 부분도 유의해야 한다.
@@ -27,7 +29,7 @@ TypeScript의 기본 타입은 JavaScript가 지원하는 원시(primitive) 타�
     str = null; // 오류
     str = undefined; // 오류
     ```
-  - `strictNullChecks`가 `false`인 경우, `null`과 `undefined`는 모든 타입에 할당 가능(기존 JavaScript 관습 유지).
+  - `strictNullChecks`가 `false`인 경우, `null`과 `undefined`는 모든 타입에 할당 가능하다(기존 JavaScript 관습 유지).
 
 ### 1.5 `symbol`
 
@@ -57,7 +59,7 @@ TypeScript의 기본 타입은 JavaScript가 지원하는 원시(primitive) 타�
   ```ts
   let obj: object = { name: "Alice" };
   obj = [1, 2, 3]; // 배열도 가능
-  // obj.name;      // 오류: 'object' 타입에는 'name' 속성이 없음
+  // obj.name;     // 오류: 'object' 타입에는 'name' 속성이 없음
   ```
 
 ## 2. `any`, `unknown`, `never`
