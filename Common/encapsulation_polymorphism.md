@@ -28,54 +28,68 @@
 아래와 같은 코드에 캡슐화를 적용하면,
 
 ```javascript
-const account = {
-  balance: 1000,
-  deposit(amount) {
+const createAccount = (balance) => ({
+  balance,
+  getBalance: function () {
+    return this.balance;
+  },
+  deposit: function (amount) {
     this.balance += amount;
   },
-  withdraw(amount) {
+  withdraw: function (amount) {
     if (this.balance >= amount) {
       this.balance -= amount;
     } else {
-      console.log("잔액이 부족합니다.");
+      console.log("잔액 부족");
     }
   },
-};
+});
 
-console.log(account.balance); // 1000
-account.balance = -500; // 잘못된 데이터 직접 접근
-console.log(account.balance); // -500
+const account = createAccount(1000);
+console.log(account.getBalance()); // 1000
+
+account.deposit(500);
+console.log(account.getBalance()); // 1500
+
+account.withdraw(200);
+console.log(account.getBalance()); // 1300
+
+// balance 직접 조작 가능 (안전X)
+account.balance = -500;
+console.log(account.getBalance()); // -500 (잘못된 값)
 ```
 
 요래 된다.
 
 ```javascript
-const createAccount = function (initialBalance) {
-  let balance = initialBalance;
+const createAccount = (balance) => ({
+  getBalance: () => balance,
+  deposit: (amount) => createAccount(balance + amount),
+  withdraw: (amount) =>
+    balance >= amount
+      ? createAccount(balance - amount)
+      : { error: "잔액 부족" },
+});
 
-  return {
-    getBalance() {
-      return balance;
-    },
-    deposit(amount) {
-      balance += amount;
-    },
-    withdraw(amount) {
-      if (balance >= amount) {
-        balance -= amount;
-      } else {
-        console.log("잔액이 부족합니다.");
-      }
-    },
-  };
-};
-
-const account = createAccount(1000);
+// 계좌 생성
+let account = createAccount(1000);
 console.log(account.getBalance()); // 1000
-account.deposit(500);
+
+// 입금 (새로운 계좌 반환)
+account = account.deposit(500);
 console.log(account.getBalance()); // 1500
-account.balance = -500; // 직접 접근 불가능
-console.log(account.getBalance()); // 1500
+
+// 출금 (새로운 계좌 반환)
+account = account.withdraw(300);
+console.log(account.getBalance()); // 1200
+
+// 잔액 부족 상황 테스트
+let result = account.withdraw(1500);
+console.log(result.error || result.getBalance()); // "잔액 부족"
+
+// balance 직접 변경 불가능
+account.balance = -500;
+console.log(account.getBalance()); // 1200 (변경되지 않음)
 ```
 
 이를 통해 데이터 무결성을 유지하며, 의도치 않은 데이터 변경을 방지할 수 있다.
@@ -89,49 +103,34 @@ console.log(account.getBalance()); // 1500
 
 ```javascript
 function printAnimalSound(animal) {
-  if (animal.type === "dog") {
+  if (animal === "dog") {
     console.log("월월");
-  } else if (animal.type === "pig") {
+  } else if (animal === "pig") {
     console.log("꿀꿀");
   } else {
-    console.log("알 수 없는 동물이요.");
+    console.log("알 수 없는 동물이에요");
   }
 }
 
-printAnimalSound({ type: "dog" }); // 월월
-printAnimalSound({ type: "pig" }); // 꿀꿀
+printAnimalSound("dog"); // "월월"
+printAnimalSound("pig"); // "꿀꿀"
+printAnimalSound("cat"); // "알 수 없는 동물이에요"
 ```
 
 이렇게 정리할 수 있다.
 
 ```javascript
-class Animal {
-  speak() {
-    console.log("소리를 내지요.");
-  }
-}
+const animalSounds = {
+  dog: () => "월월",
+  pig: () => "꿀꿀",
+  default: () => "알 수 없는 동물이에요",
+};
 
-class Dog extends Animal {
-  speak() {
-    console.log("월월");
-  }
-}
+const getAnimalSound = (animal) => (animalSounds[animal] || animalSounds.default)();
 
-class Pig extends Animal {
-  speak() {
-    console.log("꿀꿀");
-  }
-}
-
-function printAnimalSound(animal) {
-  animal.speak();
-}
-
-const dog = new Dog();
-const pig = new Pig();
-
-printAnimalSound(dog); // 월월
-printAnimalSound(pig); // 꿀꿀
+console.log(getAnimalSound("dog")); // "월월"
+console.log(getAnimalSound("pig")); // "꿀꿀"
+console.log(getAnimalSound("cat")); // "알 수 없는 동물이에요"
 ```
 
 조건문 없이도 동작을 추가하거나 변경할 수 있어 코드가 간결해지고 확장성이 높아진다.
