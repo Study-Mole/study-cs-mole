@@ -17,6 +17,7 @@
 - [Promise](#promise)
 - [콜 스택과 메모리 힙](#콜-스택과-메모리-힙)
 - [import와 require의 차이점](#import와-require의-차이점)
+- [Event Loop](#event-loop)
 
 ## 호이스팅
 
@@ -82,6 +83,10 @@ Promise는 비동기 작업의 결과를 처리하기 위해 사용되는 객체
 
 Call Stack과 Memory Heap은 JavaScript 엔진을 이루고 있는 데이터 구조입니다. Call Stack에는 함수 실행 컨텍스트를 통해 변수 이름을 저장하며 변수가 원시 타입일 경우 값 또한 직접 저장합니다. 참조 타입의 변수 값들은 Memory Heap에 저장되고 Call Stack은 이 곳의 주소를 변수 이름과 함께 저장하여 메모리를 관리합니다.
 
-# import와 require의 차이점
+## import와 require의 차이점
 
 import는 ES6 모듈 시스템에서 사용되는 구문으로, 모듈을 정적 로드하며 브라우저와 서버 양쪽에서 지원됩니다. require는 CommonJS 모듈 시스템의 함수로, 모듈을 동적 로드하며 주로 Node.js 환경에서 사용됩니다. import는 정적 구조로 최상위에서만 사용할 수 있고, require는 조건문이나 함수 내부에서도 사용 가능합니다. ES6 모듈은 비동기적이고 최적화가 가능하여 성능이 좋지만, CommonJS는 동기적으로 로드되어 서버 사이드에서 적합합니다.
+
+## Event loop
+
+Event Loop는 JavaScript에서 동기 및 비동기 작업을 처리하는 핵심 메커니즘입니다. Call Stack, Task Queue, Microtask Queue를 사용해 작업 우선순위를 관리하며 순차적으로 실행됩니다. 이 때 Microtask(ex. Promise)는 Task(ex. setTimeout)보다 높은 처리 우선순위를 갖습니다.
