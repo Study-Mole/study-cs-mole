@@ -8,6 +8,7 @@
 - [콜 스택과 메모리 힙](#콜-스택과-메모리-힙)
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
+- [Call Apply Bind](#call-apply-bind)
 
 ## touch vs click
 
@@ -97,3 +98,11 @@ ES6 모듈은 정적 분석 기반으로 동작하여 컴파일 타임에 모듈
 3. background에서 비동기 함수의 실행이 완료되면 비동기 함수의 인자로 넘겨진 callback 함수는 event queue로 옮겨진다.
 4. event loop는 callstack이 비어있는지 확인하고 있다가 callback 함수를 다시 callstack으로 옮긴다.
 5. 옮겨진 callback 함수가 실행 완료되어 비동기 함수의 성공 또는 실패를 알린다.
+
+## Call Apply Bind
+
+> **call, apply, bind의 차이점에 대해 설명해주세요.**
+
+> **this 바인딩 문제를 해결하는 방법에는 어떤 것들이 있나요?**
+
+> **실제 프로젝트에서 call이나 apply를 어떻게 활용할 수 있을지 설명해주세요.**
