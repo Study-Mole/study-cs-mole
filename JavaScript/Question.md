@@ -8,6 +8,7 @@
 - [콜 스택과 메모리 힙](#콜-스택과-메모리-힙)
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
+- [Call Apply Bind](#call-apply-bind)
 
 ## touch vs click
 
@@ -97,3 +98,53 @@ ES6 모듈은 정적 분석 기반으로 동작하여 컴파일 타임에 모듈
 3. background에서 비동기 함수의 실행이 완료되면 비동기 함수의 인자로 넘겨진 callback 함수는 event queue로 옮겨진다.
 4. event loop는 callstack이 비어있는지 확인하고 있다가 callback 함수를 다시 callstack으로 옮긴다.
 5. 옮겨진 callback 함수가 실행 완료되어 비동기 함수의 성공 또는 실패를 알린다.
+
+## Call Apply Bind
+
+> **call, apply, bind의 차이점에 대해 설명해주세요.**
+
+call, apply, bind는 JavaScript에서 `this`를 명확하게 제어할 때 사용되는 메서드이다.
+
+call, apply는 this에 바인딩할 객체를 첫번째 인자로 받아 즉시 실행한다. 다만, apply는 call과 다르게 인자를 배열로 전달해야 한다는 차이점이 있다. bind는 함수를 즉시 실행하지 않고 새로운 함수를 반환하기 때문에 `()`를 붙여 실행한다.
+
+> **this 바인딩 문제를 해결하는 방법에는 어떤 것들이 있나요?**
+
+1. `bind`, `call`, `apply` 메서드
+2. 화살표 함수 사용
+
+- 화살표 함수는 자신을 포함하는 스코프를 this로 기억한다.
+
+```js
+const obj = {
+  name: "Yubin",
+  greet: function () {
+    const inner = () => {
+      console.log(`Hello, ${this.name}`);
+    };
+    inner();
+  },
+};
+
+obj.greet(); // "Hello, Yubin"
+```
+
+3. 변수에 this 저장하기
+
+```js
+const obj = {
+  name: "Alice",
+  greet: function () {
+    const self = this; // this 저장
+    function inner() {
+      console.log(`Hello, ${self.name}`);
+    }
+    inner();
+  },
+};
+```
+
+> **실제 프로젝트에서 call이나 apply를 어떻게 활용할 수 있을지 설명해주세요.**
+
+특정 객체의 메서드를 다른 객체에서도 사용하고 싶을 때 활용할 수 있습니다. 예를들어, logMessage 같은 공통적인 기능을 여러 객체에서 사용할 수 있습니다.
+
+또한 기존 생성자의 로직을 그대로 활용하면서 새로운 객체를 생성하고 싶을 때 사용할 수 있습니다. 예를들어, Person 생성자를 Employee에서 재사용하여 중복 코드를 줄일 수 있습니다.
