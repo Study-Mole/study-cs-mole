@@ -2,7 +2,7 @@
 
 ## 1. Lighthouse란?
 
-**Lighthouse**는 Google에서 개발한 **오픈소스 자동화 분석 도구**이다. 웹사이트의 **성능(Performance)**, **접근성(Accessibility)**, **베스트 프랙티스(Best Practices)**, **SEO**, **PWA(Progressive Web App)** 총 5가지 영역을 자동으로 테스트하여, **지표(Metrics)**와 **개선 권장사항**을 리포트 형태로 제공한다.
+**Lighthouse**는 Google에서 개발한 **오픈소스 자동화 분석 도구**이다. 웹사이트의 **성능(Performance)**, **접근성(Accessibility)**, **베스트 프랙티스(Best Practices)**, **SEO**, **PWA(Progressive Web App)** 총 5가지 영역을 자동으로 테스트하여, **지표(Metrics)** 와 **개선 권장사항**을 리포트 형태로 제공한다.
 
 - **주요 목적**: 웹 페이지 품질(성능, 접근성, SEO 등)을 높이고, 사용자 경험을 개선
 - **장점**:
@@ -35,7 +35,7 @@
 
 1. **FCP (First Contentful Paint)**
 
-   - 화면에 **첫 번째 컨텐츠(텍스트·이미지 등)**가 그려지는 시점
+   - 화면에 **첫 번째 컨텐츠(텍스트·이미지 등)** 가 그려지는 시점
    - 빠른 FCP는 사용자가 로딩 시작을 체감할 수 있게 하므로 중요하다.
 
 2. **LCP (Largest Contentful Paint)**
@@ -62,7 +62,7 @@
 ### 4.1 Chrome DevTools를 통한 실행
 
 1. **Chrome** 브라우저에서 원하는 웹 페이지를 연다.
-2. **개발자 도구(DevTools)**를 열기
+2. **개발자 도구(DevTools)** 를 열기
    - Windows: `F12` 또는 `Ctrl + Shift + I`
    - macOS: `Cmd + Opt + I`
 3. 상단 탭 중 **Lighthouse** (또는 **Audits**)를 선택한다.
@@ -190,7 +190,7 @@ jobs:
 
 ### 6.2 성능 대시보드 구축
 
-- **Lighthouse 결과(JSON)**를 주기적으로 수집하고,
+- **Lighthouse 결과(JSON)** 를 주기적으로 수집하고,
 - **Grafana**, **Kibana**, 혹은 사내 대시보드에 **시계열 그래프**로 시각화
 - 특정 날짜나 배포 버전부터 점수가 급락했다면, 해당 시점의 커밋·이슈 등을 추적하여 신속하게 개선
 
