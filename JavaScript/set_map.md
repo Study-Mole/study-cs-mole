@@ -70,7 +70,8 @@ Map과 Object는 key-value 쌍으로 데이터를 저장하지만, 몇 가지 �
 
 1.  **키의 타입**
     <br/>Object는 string, symbol 타입의 key만 사용할 수 있다. Map은 객체를 포함한 모든 타입을 key로 사용할 수 있다.
-    ```js
+
+    ````js
     // key로 object 사용
     let yubin = { name: "yubin" };
     let coolGamjaMap = new Map();
@@ -79,24 +80,27 @@ Map과 Object는 key-value 쌍으로 데이터를 저장하지만, 몇 가지 �
         console.log(coolGamjaMap.get(yubin)); // 'cool~'
         ```
 
+    ````
+
 2.  **요소 순서**<br/>
     Object는 추가된 순서와 상관없이 저장되어 반복 시 순서가 일정하지 않다. Map은 삽입 순서를 보장하여 추가된 순서대로 순회할 수 있다.
 
 3.  **크기 확인**<br/>
     Map은 `size` 프로퍼티를 통해 요소의 개수를 확인할 수 있지만 Object는 이러한 메서드나 속성이 존재하지 않는다.
+
     ```js
     console.log(coolGamjaMap.size); // 1
     ```
 
-4. **상속**<br/>
-   Object는 상속 관계를 형성할 수 있으나, Map은 독립된 자료구조로 상속할 수 없다.
+4.  **상속**<br/>
+    Object는 상속 관계를 형성할 수 있으나, Map은 독립된 자료구조로 상속할 수 없다.
 
-5. **이터레이션**<br/>
-   Object는 `for...in` 문법을 통해 요소들을 순회할 수 있다. Map은 `for...of`, `forEach` 메서드를 통해 요소들을 순회한다. <br/>
-   Object, Map 두가지 자료형 모두 `keys()`, `values()`, `entries()`로 순회할 수도 있다.
+5.  **이터레이션**<br/>
+    Object는 `for...in` 문법을 통해 요소들을 순회할 수 있다. Map은 `for...of`, `forEach` 메서드를 통해 요소들을 순회한다. <br/>
+    Object, Map 두가지 자료형 모두 `keys()`, `values()`, `entries()`로 순회할 수도 있다.
 
-6. **성능**<br/>
-   Object는 일반적으로 해시 테이블을 사용하며, key-value 쌍의 개수에 따라 성능이 변할 수 있지만 Map은 내부적으로 해시 테이블 또는 이중 연결 리스트로 구현되며, 대부분의 상황에서 일관된 성능을 제공한다.
+6.  **성능**<br/>
+    Object는 일반적으로 해시 테이블을 사용하며, key-value 쌍의 개수에 따라 성능이 변할 수 있지만 Map은 내부적으로 해시 테이블 또는 이중 연결 리스트로 구현되며, 대부분의 상황에서 일관된 성능을 제공한다.
 
 <br/>
 차이점을 테이블로 정리해보았다.
@@ -111,7 +115,6 @@ Map과 Object는 key-value 쌍으로 데이터를 저장하지만, 몇 가지 �
 | **상속**       | 프로토타입 체인을 통한 상속 가능 | 독립된 자료구조, 상속 없음        |
 | **이터레이션** | `for...in`                       | `for...of`, `forEach`             |
 | **성능**       | 키 개수에 따라 성능 변동         | 일관된 성능 제공                  |
-
 
 이러한 차이점을 고려하여 데이터를 저장하는데 가장 적합한 자료구조를 선택해야 한다.
 

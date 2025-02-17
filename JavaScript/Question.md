@@ -9,6 +9,7 @@
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
 - [Call Apply Bind](#call-apply-bind)
+- [Set Map](#set-object-map)
 
 ## touch vs click
 
@@ -148,3 +149,9 @@ const obj = {
 특정 객체의 메서드를 다른 객체에서도 사용하고 싶을 때 활용할 수 있습니다. 예를들어, logMessage 같은 공통적인 기능을 여러 객체에서 사용할 수 있습니다.
 
 또한 기존 생성자의 로직을 그대로 활용하면서 새로운 객체를 생성하고 싶을 때 사용할 수 있습니다. 예를들어, Person 생성자를 Employee에서 재사용하여 중복 코드를 줄일 수 있습니다.
+
+## Set Object Map
+
+> **Map과 Object의 차이점을 한 가지 이상 설명해보세요. (예: 키의 타입, 삽입 순서 보장, 이터레이션 방식 등)**
+
+> **Set을 사용할 때의 장점은 무엇이고, 어떤 상황에서 Set보다 Map이나 Object를 사용하는 것이 유리한지 말해보세요.**
