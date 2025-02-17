@@ -148,7 +148,7 @@ EM은 부모 요소의 font-size를 기준으로 하기 때문에 중첩 사용�
 
 ## Performance Metrix
 
-> **Largest Contentful Paint(LCP)가 어떤 성능 지표인지 간단히 설명해주시고,이를 개선하기 위한 대표적인 방법 한두 가지를 말씀해 주세요.**
+> **Largest Contentful Paint(LCP)가 어떤 성능 지표인지 간단히 설명해주시고, 이를 개선하기 위한 대표적인 방법 한두 가지를 말씀해 주세요.**
 
 Largest Contentful Paint는 이미지, 비디오 등 가장 큰 콘텐츠가 렌더링 되는 시점을 의미하는 성능 지표입니다. 
 
