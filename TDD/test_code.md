@@ -134,7 +134,7 @@ ex ) 추후 작성
 ex).
 
 ```jsx
-// Hmm.. - 내부 구현에 집중되어 있고 명확하지 못한 테스트 코드입니다.
+// Hmm.. - 내부 구현에 집중되어 있고 명확하지 못한 테스트 코드이다.
 it("입력한 숫자 문자열의 첫자리가 3,4,7,8일 때만 true, 이외엔 false를 반환한다", () => {
   expect(doSomething("1234567")).toBe(false);
   expect(doSomething("2134567")).toBe(false);
@@ -146,7 +146,7 @@ it("입력한 숫자 문자열의 첫자리가 3,4,7,8일 때만 true, 이외엔
   expect(doSomething("8123456")).toBe(true);
 });
 
-// Good! - 간결하고 명확하게 함수의 명세와 정책을 담아 설명을 표현합시다.
+// Good! - 간결하고 명확하게 함수의 명세와 정책을 담아 설명을 표현하자.
 it("2000년 이후에 태어난 사람의 주민번호 뒷자리인지 검증한다", () => {
   expect(doSomething("1234567")).toBe(false);
   expect(doSomething("2134567")).toBe(false);
