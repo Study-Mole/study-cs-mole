@@ -9,7 +9,7 @@
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
 - [Call Apply Bind](#call-apply-bind)
-- [Set Map](#set-object-map)
+- [Object, Set, Map](#set-object-map)
 
 ## touch vs click
 
@@ -150,8 +150,12 @@ const obj = {
 
 또한 기존 생성자의 로직을 그대로 활용하면서 새로운 객체를 생성하고 싶을 때 사용할 수 있습니다. 예를들어, Person 생성자를 Employee에서 재사용하여 중복 코드를 줄일 수 있습니다.
 
-## Set Object Map
+## Object, Set, Map
 
 > **Map과 Object의 차이점을 한 가지 이상 설명해보세요. (예: 키의 타입, 삽입 순서 보장, 이터레이션 방식 등)**
 
+Map과 Object는 모두 key-value 형태로 데이터를 저장하지만, Object는 key로 문자열과 심볼만 사용할 수 있는 반면, Map은 객체를 포함한 모든 타입을 key로 사용할 수 있습니다. Map은 삽입 순서를 보장하지만, Object는 순서를 보장하지 않습니다. Map은 이터레이션 시 `for...of`, `forEach` 방식을 사용하고 Object는 `for...in` 방식을 사용합니다.
+
 > **Set을 사용할 때의 장점은 무엇이고, 어떤 상황에서 Set보다 Map이나 Object를 사용하는 것이 유리한지 말해보세요.**
+
+Set은 중복 데이터를 자동으로 제거하므로 유일한 값들의 집합을 저장할 때 유용합니다. 또한 삽입 순서를 유지하고 빠른 순회를 지원한다는 장점을 갖습니다. 하지만 Set에는 key 개념이 없으므로 데이터를 `key-value` 형태로 저장하거나 특정 키로 빠르게 접근해야 할 경우에는 Object나 Map이 더 적합합니다.
