@@ -21,7 +21,7 @@
 
 ### **MVC Architecture**
 
-![MVC Architecture](./images/MVC_Architecture.png)
+![MVC Architecture](/Images/MVC_Architecture.png)
 
 ### Model, View, Controller
 
@@ -69,7 +69,7 @@ MVC를 최대한 분리해야 한다는 원칙에 맞게, HTML과 jQuery를 따�
 
 ### **MVP Architecture**
 
-![MVP Architecture](./images/MVP_Architecture.png)
+![MVP Architecture](/Images/MVP_Architecture.png)
 
 MVC 구조에서 View와 Model간의 의존성을 해결하기 위해 제시된 모델이다.
 
@@ -198,7 +198,7 @@ export default UserProfilePresenter;
 
 ### **MVVM Architecture**
 
-![MVVM_Architecture](./images/MVVM_Architecture.png)
+![MVVM_Architecture](/Images/MVVM_Architecture.png)
 
 2013년 구글의 앵귤러 발표로 웹 개발 방식의 패러다임이 전환되기 시작한다.
 
