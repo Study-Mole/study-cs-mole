@@ -5,6 +5,7 @@
 - [React Query](#react-query)
 - [hydration](#hydration)
 - [React Memoization](#react-memoization)
+- [React Suspense](#react-suspense)
 
 ## Life cycle
 
@@ -25,3 +26,7 @@ hydration은 React에서 서버 사이드 렌더링된 정적인 HTML을 클라�
 # React Memoization
 
 React Memoization은 동일한 입력에 대해 이전 결과를 재사용하여 불필요한 리렌더링을 방지하여 성능을 최적화하는 기법입니다. `memo`는 컴포넌트를 메모이제이션하여 props가 변경되지 않으면 이전 컴포넌트를 재사용하고, `useMemo`는 계산된 값을 메모이제이션하여 의존성이 변경될 때만 다시 계산합니다.
+
+# React Suspense
+
+`React Suspense`는 컴포넌트의 렌더링을 일시 중지하고 데이터 로딩을 기다릴 수 있도록 하여 사용자 경험을 개선하는 기능입니다. 기존 `Fetch-on-Render` 방식은 컴포넌트가 중첩될수록 로딩이 지연되는 문제가 있지만, `Render-as-You-Fetch` 방식을 사용하면 로딩과 동시에 렌더링을 시작할 수 있습니다. Suspense는 `React.lazy`를 활용한 코드 분할이나 Tanstack Query의 `useSuspenseQuery`와 함께 사용하면 자연스러운 로딩 처리를 할 수 있으며, 에러 처리를 위해 `Error Boundary`와 조합할 수도 있습니다. 이를 통해 초기 로딩 속도를 개선하고, 스켈레톤 UI 등을 활용하여 보다 부드러운 사용자 경험을 제공할 수 있습니다.

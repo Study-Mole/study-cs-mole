@@ -4,6 +4,7 @@
 - [React Query](#react-query)
 - [hydration](#hydration)
 - [React Memoization](#react-memoization)
+- [React Suspense](#react-suspense)
 
 ## React Hook Form
 
@@ -37,3 +38,7 @@ SSR이 SEO에 유리한 이유는 서버에서 미리 HTML을 완성해서 제�
 ## React Memoization
 
 > **React.memo와 useMemo의 차이점은 무엇인가요?**
+
+## React Suspense
+
+> **React Suspense를 사용하면 기존의 useEffect 기반 데이터 패칭과 비교하여 어떤 장점이 있나요?**
