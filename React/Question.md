@@ -4,6 +4,7 @@
 - [React Query](#react-query)
 - [hydration](#hydration)
 - [React Memoization](#react-memoization)
+- [useEffect, 오남용을 피하는 5가지](#useeffect-오남용을-피하는-5가지)
 
 ## React Hook Form
 
@@ -37,3 +38,9 @@ SSR이 SEO에 유리한 이유는 서버에서 미리 HTML을 완성해서 제�
 ## React Memoization
 
 > **React.memo와 useMemo의 차이점은 무엇인가요?**
+
+## useEffect, 오남용을 피하는 5가지
+
+> **useEffect를 사용하면서 발생할 수 있는 경쟁 상태 문제를 해결하는 방법에 대해 설명해주세요.**
+
+> **useEffect를 잘못 사용하면 발생할 수 있는 성능 저하나 불필요한 렌더링 문제에 대해 설명하고, 이를 피하기 위한 방법에 대해 말해주세요.**

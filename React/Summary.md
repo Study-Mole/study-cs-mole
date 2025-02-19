@@ -5,7 +5,7 @@
 - [React Query](#react-query)
 - [hydration](#hydration)
 - [React Memoization](#react-memoization)
-- [useEffect, 오남용을 피하는 5가지]()
+- [useEffect, 오남용을 피하는 5가지](#useeffect-오남용을-피하는-5가지)
 
 ## Life cycle
 
