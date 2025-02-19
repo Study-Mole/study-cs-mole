@@ -49,7 +49,7 @@ react-query/src
 
 추상적으로 표현한 구조의 모습은 다음과 같다.
 
-![alt text](.//Images/react-query-1.png)
+![alt text](/Images/react-query-1.png)
 
 ### QueryClient
 
@@ -328,7 +328,7 @@ export class QueryObserver extends Subscribable {
 
 정리하면 현재까지 살펴본 React Query 내부 클래스 구조 및 클래스 간의 상호작용을 통해 하나의 흐름이 만들어진다.
 
-![alt text](.//Images/react-query-2.png)
+![alt text](/Images/react-query-2.png)
 
 1. `Query` 상태에 변화가 발생한다.
 2. `Query`와 연결된 `QueryObserver`에게 자신의 상태가 변화했음을 알린다.
@@ -468,7 +468,7 @@ export class QueryObserver extends Subscribable {
 
 정리하면 리액트 컴포넌트상에서의 `useQuery` 훅을 호출하게 되면 `Query`의 변화를 관찰하는 `QueryObserver`가 생성되어 컴포넌트와 연결을 맺게 되고 `Query`의 변화에 따라 컴포넌트는 리렌더링이 발생하게 된다.
 
-![alt text](.//Images/react-query-3.png)
+![alt text](/Images/react-query-3.png)
 
 1. 리액트 컴포넌트에서 `useQuery` 훅을 호출한다.
 2. `useBaseQuery` 훅으로 정제된 옵션과 `QueryObserver` 클래스가 전달된다.

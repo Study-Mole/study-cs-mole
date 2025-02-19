@@ -17,7 +17,7 @@
 회로를 구성할 때, 전압이 순간적으로 불규칙하게 들어가는 현상을 바운싱 현상이라고 한다.
 <br>이 바운싱 현상이 발생하는 시간만큼의 딜레이를 주어 문제를 해결하는 방법인 **디바운싱**에서 유래되었다.
 
-![](./images/bouncing.png)
+![](/Images/bouncing.png)
 
 ### 구현
 
@@ -91,7 +91,7 @@ document.querySelector("#input").addEventListener("input", function (e) {
 
 각각의 동작을 이해하는 데 도움이 되는 사진을 첨부한다.
 
-![](./images/debouncing_throttling.png)
+![](/Images/debouncing_throttling.png)
 
 정리하면,
 <br>디바운싱은 이벤트 발생이 끝난 후에 동작하는 것이 적합한 경우,
