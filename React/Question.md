@@ -4,7 +4,9 @@
 - [React Query](#react-query)
 - [hydration](#hydration)
 - [React Memoization](#react-memoization)
-- [useEffect, 오남용을 피하는 5가지](#useeffect-오남용을-피하는-5가지)
+
+- [React Suspense](#react-suspense)
+
 
 ## React Hook Form
 
@@ -38,6 +40,13 @@ SSR이 SEO에 유리한 이유는 서버에서 미리 HTML을 완성해서 제�
 ## React Memoization
 
 > **React.memo와 useMemo의 차이점은 무엇인가요?**
+
+
+## React Suspense
+
+> **React Suspense를 사용하면 기존의 useEffect 기반 데이터 패칭과 비교하여 어떤 장점이 있나요?**
+
+React Suspense는 데이터를 불러오는 동안 자동으로 로딩 상태를 관리하고, 에러 처리를 Error Boundary와 결합해 간단하게 구현할 수 있습니다. 또한 선언적 데이터 패칭 방식을 사용해 useEffect로 직접 상태를 관리하는 방식보다 코드 구조가 단순해지고, Concurrent Mode와 결합했을 때 성능 최적화에도 유리합니다.
 
 ## useEffect, 오남용을 피하는 5가지
 
