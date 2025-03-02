@@ -92,7 +92,7 @@ props 또는 state가 변경되어 렌더링이 발생하기 직전에 호출된
 
 ```jsx
 shouldComponentUpdate(nextProps, nextState) {
-    // 두더지들이 4명 미만일 경우 리렌더링 하지 않습니다.
+    // 두더지들이 4명 미만일 경우 리렌더링 하지 않는다.
     return nextState.mole < 4;
 }
 ```
@@ -165,8 +165,8 @@ useEffect에 빈 의존성 배열을 사용하여 구현할 수 있다.
 ```jsx
 function myComponent() {
   useEffect(() => {
-    console.log("이 부분이 componentDidMount 처럼 동작합니다.");
-  }, []); // 빈 배열을 넣어야 마운트 시에 한 번만 실행됩니다.
+    console.log("이 부분이 componentDidMount 처럼 동작한다.");
+  }, []); // 빈 배열을 넣어야 마운트 시에 한 번만 실행된다.
 
   return <div>Hello Moles!</div>;
 }
@@ -182,8 +182,8 @@ function myComponent() {
   const [state, setState] = useState();
 
   useEffect(() => {
-    console.log("이 부분이 componentDidUpdate 처럼 동작합니다.");
-  }, [state]); // state가 변경될 때마다 실행됩니다.
+    console.log("이 부분이 componentDidUpdate 처럼 동작한다.");
+  }, [state]); // state가 변경될 때마다 실행된다.
 
   return <div>Hello Moles!</div>;
 }
@@ -198,9 +198,9 @@ useEffect의 return 문에 언마운트 시 실행하고 싶은 작업을 작성
 function myComponent() {
   useEffect(() => {
     return () => {
-      console.log("이 부분이 componentWillUnmount 처럼 동작합니다.");
+      console.log("이 부분이 componentWillUnmount 처럼 동작한다.");
     };
-  }, []); // 빈 배열을 넣으면 cleanup 함수는 언마운트 시에 실행됩니다.
+  }, []); // 빈 배열을 넣으면 cleanup 함수는 언마운트 시에 실행된다.
 
   return <div>Hello Moles!</div>;
 }
@@ -235,7 +235,7 @@ function MyComponent({ someProp }) {
   const [state, setState] = useState(someProp);
 
   useEffect(() => {
-    setState(someProp); // someProp이 변경되면 state도 변경됩니다.
+    setState(someProp); // someProp이 변경되면 state도 변경된다.
   }, [someProp]);
 
   return <div>{state}</div>;

@@ -18,6 +18,7 @@
 - [콜 스택과 메모리 힙](#콜-스택과-메모리-힙)
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
+- [Object, Set, Map]()
 
 ## 호이스팅
 
@@ -90,3 +91,7 @@ import는 ES6 모듈 시스템에서 사용되는 구문으로, 모듈을 정적
 ## Event loop
 
 Event Loop는 JavaScript에서 동기 및 비동기 작업을 처리하는 핵심 메커니즘입니다. Call Stack, Task Queue, Microtask Queue를 사용해 작업 우선순위를 관리하며 순차적으로 실행됩니다. 이 때 Microtask(ex. Promise)는 Task(ex. setTimeout)보다 높은 처리 우선순위를 갖습니다.
+
+## Object, Set, Map
+
+Object, Set, Map은 데이터를 저장하는 자료구조입니다. Object와 Map은 key-value 형태지만, Map은 객체를 포함한 모든 타입을 key로 사용할 수 있고, 삽입 순서를 보장합니다. Set은 중복 없는 값을 저장하며 순서를 유지합니다. Object는 for...in으로 순회하고 크기 확인 속성이 없지만, Map은 for...of와 size 속성을 제공합니다. 성능 면에서는 Map이 더 일관된 속도를 보장합니다. 데이터 중복을 방지하려면 Set, 순서가 중요한 key-value 저장은 Map, 단순한 key-value 저장은 Object를 사용하는 것이 좋습니다.

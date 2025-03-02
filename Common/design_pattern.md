@@ -21,7 +21,7 @@
 
 ### **MVC Architecture**
 
-![MVC Architecture](./images/MVC_Architecture.png)
+![MVC Architecture](/Images/MVC_Architecture.png)
 
 ### Model, View, Controller
 
@@ -69,7 +69,7 @@ MVC를 최대한 분리해야 한다는 원칙에 맞게, HTML과 jQuery를 따�
 
 ### **MVP Architecture**
 
-![MVP Architecture](./images/MVP_Architecture.png)
+![MVP Architecture](/Images/MVP_Architecture.png)
 
 MVC 구조에서 View와 Model간의 의존성을 해결하기 위해 제시된 모델이다.
 
@@ -192,13 +192,13 @@ export default UserProfilePresenter;
 
 1. **Model**: `fetchUserData` 함수는 서버에서 사용자 데이터를 가져오는 비동기 함수이다.
 2. **View**: `UserProfileView`는 사용자 인터페이스를 정의한다. `user`, `loading`, `error` 상태를 통해 UI를 렌더링하며, 새로고침 버튼 클릭 시 `onRefresh`를 호출하여 Presenter가 데이터를 다시 로드하도록 요청한다.
-3. **Presenter**: `UserProfilePresenter`는 `user`, `loading`, `error` 상태를 관리하며, 데이터를 가져오고 UI를 업데이트하는 로직을 처리합니다. `loadUserData` 함수는 데이터를 불러오고 상태를 업데이트하며, `useEffect`로 컴포넌트 마운트 시 데이터를 불러온다.
+3. **Presenter**: `UserProfilePresenter`는 `user`, `loading`, `error` 상태를 관리하며, 데이터를 가져오고 UI를 업데이트하는 로직을 처리한다. `loadUserData` 함수는 데이터를 불러오고 상태를 업데이트하며, `useEffect`로 컴포넌트 마운트 시 데이터를 불러온다.
 
 이 구조를 통해 View는 Model을 직접 참조하지 않고, Presenter가 데이터를 관리하여 UI에 업데이트한다. 이는 View와 Model 간의 의존성을 줄이고, Presenter를 중심으로 데이터 로직과 UI 업데이트 로직을 분리하여 코드가 더 깔끔해진다.
 
 ### **MVVM Architecture**
 
-![MVVM_Architecture](./images/MVVM_Architecture.png)
+![MVVM_Architecture](/Images/MVVM_Architecture.png)
 
 2013년 구글의 앵귤러 발표로 웹 개발 방식의 패러다임이 전환되기 시작한다.
 
