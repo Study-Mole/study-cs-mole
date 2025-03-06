@@ -11,6 +11,7 @@
 - [EM, REM, 퍼센트 차이](#em-rem-퍼센트-차이)
 - [프론트엔드 아키텍쳐 & C4](#프론트엔드-아키텍쳐--c4)
 - [Performance Metrics](#performance-metrix)
+- [개발자도구](#개발자-도구)
 - [Session과 JWT](#session과-jwt)
 
 ## 웹 스토리지
@@ -158,6 +159,18 @@ Largest Contentful Paint는 이미지, 비디오 등 가장 큰 콘텐츠가 렌
 - 이미지 파일의 저장 위치가 직접 컨트롤 할 수 있는 곳 (ex. 로컬 디렉터리)이라면 직접 이미지 크기를 줄일 수 있는 툴을 이용할 수 있습니다.
   - [자주 쓰이는 Tool: https://squoosh.app/](https://squoosh.app/)
 - `jpg`, `jpeg` 보다는 `svg` 또는 `webp`과 같은 압축률이 높은 확장자를 사용하면 로딩 속도를 개선할 수 있습니다.
+
+## 개발자도구
+
+> **네트워크 패널을 사용해 비동기 요청(AJAX/Fetch)을 디버깅할 때 어떤 정보를 확인하고, 이를 통해 어떤 문제를 해결할 수 있나요?**
+
+network 패널에서는 request url, method, status code, headers, body, response data 등을 확인할 수 있습니다.
+이를 통해 요청이 제대로 전송되었는지(request url, method), 응답이 잘 왔는지(response data), 오류가 발생했다면 어떤 오류인지(status code) 확인할 수 있습니다.
+
+> **Elements 패널에서 스타일 디버깅을 할 때 Computed 탭은 어떤 상황에서 주로 활용되며, 이를 통해 얻을 수 있는 이점은 무엇인가요?**
+
+computed 탭은 요소에 적용된 최송 css를 확인할 수 있는 곳입니다. 여러 css 규칙이 덮어 씌워진 최종 스타일을 확인할 수 있습니다.
+상속된 스타일과 우선순위에 따른 최종 적용값을 보여주기 때문에, 스타일이 예상한대로 적용되지 않았을 때, computed 탭을 활용하면 빠르게 원인을 파악할 수 있습니다.
 
 ## Session과 JWT
 

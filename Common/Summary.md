@@ -13,6 +13,7 @@
 - [Lighthouse](#lighthouse)
 - [EM, REM, 퍼센트 차이](#em-rem-퍼센트-차이)
 - [프론트엔드 아키텍쳐 & C4](#프론트엔드-아키텍쳐--c4)
+- [개발자 도구](#개발자-도구)
 - [Session과 JWT](#session과-jwt)
 
 ## 브라우저 동작 과정
@@ -61,6 +62,12 @@ EM, REM, 퍼센트는 CSS에서 크기를 지정할 때 사용하는 상대 단�
 ## 프론트엔드 아키텍쳐 & C4
 
 프론트엔드 아키텍처 설계는 유지보수성과 확장성을 고려해 클라이언트 측 구조를 정리하는 과정입니다. C4 모델은 시스템을 큰 그림부터 코드 레벨까지 시각화하는 방법론으로, System Context, Container, Component, Code의 4단계로 구성됩니다. 이를 활용하면 프론트엔드 구조를 체계적으로 설계하고, 변경 관리와 협업을 효율적으로 수행할 수 있습니다.
+
+## 개발자 도구
+
+개발자 도구는 Elements, Console, Sources, Network 등 다양한 패널로 구성되어, HTML/CSS/JS 및 네트워크 요청을 실시간으로 확인하고 디버깅할 수 있도록 돕습니다.
+특히 Network 패널에서 HTTP 요청/응답 상태와 헤더, 페이로드 등을 분석해 웹 애플리케이션 문제 해결에 큰 도움을 줍니다.
+성능 분석(Performance, Memory), 스토리지(Application), 보안(Security), SEO 및 PWA 진단(Lighthouse) 등 웹 개발 전 과정을 지원합니다.
 
 ## Session과 JWT
 
