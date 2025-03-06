@@ -11,6 +11,7 @@
 - [EM, REM, 퍼센트 차이](#em-rem-퍼센트-차이)
 - [프론트엔드 아키텍쳐 & C4](#프론트엔드-아키텍쳐--c4)
 - [Performance Metrics](#performance-metrix)
+- [Session과 JWT](#session과-jwt)
 
 ## 웹 스토리지
 
@@ -150,9 +151,16 @@ EM은 부모 요소의 font-size를 기준으로 하기 때문에 중첩 사용�
 
 > **Largest Contentful Paint(LCP)가 어떤 성능 지표인지 간단히 설명해주시고, 이를 개선하기 위한 대표적인 방법 한두 가지를 말씀해 주세요.**
 
-Largest Contentful Paint는 이미지, 비디오 등 가장 큰 콘텐츠가 렌더링 되는 시점을 의미하는 성능 지표입니다. 
+Largest Contentful Paint는 이미지, 비디오 등 가장 큰 콘텐츠가 렌더링 되는 시점을 의미하는 성능 지표입니다.
 
 가장 영향이 큰 최적화 방법으로는 이미지 최적화가 있습니다.
+
 - 이미지 파일의 저장 위치가 직접 컨트롤 할 수 있는 곳 (ex. 로컬 디렉터리)이라면 직접 이미지 크기를 줄일 수 있는 툴을 이용할 수 있습니다.
-    - [자주 쓰이는 Tool: https://squoosh.app/](https://squoosh.app/)
+  - [자주 쓰이는 Tool: https://squoosh.app/](https://squoosh.app/)
 - `jpg`, `jpeg` 보다는 `svg` 또는 `webp`과 같은 압축률이 높은 확장자를 사용하면 로딩 속도를 개선할 수 있습니다.
+
+## Session과 JWT
+
+> **저장 위치, 인증 방식, 보안성, 서버 부하 측면에서 Session과 JWT의 차이점은 무엇인가요?**
+
+> **JWT를 사용할 때 보안 취약점을 방지하는 방법은 무엇인가요?**
