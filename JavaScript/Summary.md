@@ -18,8 +18,8 @@
 - [콜 스택과 메모리 힙](#콜-스택과-메모리-힙)
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
-- [Object, Set, Map]()
-- []()
+- [Object, Set, Map](#object-set-map)
+- [defer vs async](#defer-vs-async)
 
 ## 호이스팅
 
