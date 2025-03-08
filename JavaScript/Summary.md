@@ -19,6 +19,7 @@
 - [import와 require의 차이점](#import와-require의-차이점)
 - [Event Loop](#event-loop)
 - [Object, Set, Map]()
+- []()
 
 ## 호이스팅
 
@@ -95,3 +96,7 @@ Event Loop는 JavaScript에서 동기 및 비동기 작업을 처리하는 핵�
 ## Object, Set, Map
 
 Object, Set, Map은 데이터를 저장하는 자료구조입니다. Object와 Map은 key-value 형태지만, Map은 객체를 포함한 모든 타입을 key로 사용할 수 있고, 삽입 순서를 보장합니다. Set은 중복 없는 값을 저장하며 순서를 유지합니다. Object는 for...in으로 순회하고 크기 확인 속성이 없지만, Map은 for...of와 size 속성을 제공합니다. 성능 면에서는 Map이 더 일관된 속도를 보장합니다. 데이터 중복을 방지하려면 Set, 순서가 중요한 key-value 저장은 Map, 단순한 key-value 저장은 Object를 사용하는 것이 좋습니다.
+
+## defer vs async
+
+defer와 async는 자바스크립트 파일이 HTML 렌더링을 차단하지 않도록 하는 `<script/>`의 속성입니다. defer 속성은 자바스크립트 파일 다운로드 및 실행 시점을 HTML 문서 파싱 이후로 미룹니다. async 속성은 자바스크립트 파일을 비동기적으로 다운로드하고, 다운로드가 완료되면 순서에 상관없이 즉시 실행합니다. 
