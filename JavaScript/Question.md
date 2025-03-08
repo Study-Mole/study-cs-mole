@@ -10,6 +10,7 @@
 - [Event Loop](#event-loop)
 - [Call Apply Bind](#call-apply-bind)
 - [Object, Set, Map](#set-object-map)
+- []()
 
 ## touch vs click
 
@@ -159,3 +160,9 @@ Map과 Object는 모두 key-value 형태로 데이터를 저장하지만, Object
 > **Set을 사용할 때의 장점은 무엇이고, 어떤 상황에서 Set보다 Map이나 Object를 사용하는 것이 유리한지 말해보세요.**
 
 Set은 중복 데이터를 자동으로 제거하므로 유일한 값들의 집합을 저장할 때 유용합니다. 또한 삽입 순서를 유지하고 빠른 순회를 지원한다는 장점을 갖습니다. 하지만 Set에는 key 개념이 없으므로 데이터를 `key-value` 형태로 저장하거나 특정 키로 빠르게 접근해야 할 경우에는 Object나 Map이 더 적합합니다.
+
+## defer vs async
+
+> **DomContentLoaded 함수에 대해서 설명해주세요.**
+
+> **HTML에서의 스크립트 로딩 순서에 대해서 설명해주세요.**
